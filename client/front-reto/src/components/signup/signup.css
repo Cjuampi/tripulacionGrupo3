@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: sans-serif;
+    background-image: linear-gradient(127deg, #f3f2fd, #f9f4fc);
+  }
+
+  .round {
+    position: relative;
+  }
+  .round label {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+  }
+  .round label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+  }
+  .round input[type="checkbox"]:checked + label {
+    background-image: linear-gradient(149deg, #ba91e9, #6d58ce);
+    border-color: linear-gradient(149deg, #ba91e9, #6d58ce);
+  }
+  .round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+  .right {
+    flex: 40%;
+    margin: 6%;
+    padding-top: 40px;
+  }
+  .right h2 {
+    font-size: 24px;
+  }
+  .right label {
+    font-size: 16px; 
+  }
+
+  .widthsetting {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 16px;
+  }
+  .check {
+    vertical-align: middle;
+  }
+  .right input[type="submit"] {
+    color: #fff;
+    background-color: #6e59ce;
+    margin-top: 24px;
+    border-radius: 5px;
+  }
+  .right input[type="submit"]:hover {
+    cursor: pointer;
+  }
+
+  #form{
+      font-size: 26px;
+  }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .main {
+      margin: 50px 10% 50px 10%;
+    }
+  }
+  @media (max-width: 600px) {
+    .main {
+      margin: 10px 10px 10px 10px;
+    }
+  }
+  @media (max-width: 600px) {
+    .left {
+      flex: 100%;
+    }
+  }
+  @media (max-width: 600px) {
+    .right {
+      flex: 100%;
+    }
+  }
