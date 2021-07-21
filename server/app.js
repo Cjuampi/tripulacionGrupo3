@@ -1,16 +1,17 @@
 require("dotenv").config();
-require('./config/mongo.cnx')
+/* require('./config/mongo.cnx') */
 const express = require("express");
 var cors = require('cors')
 const app = express();
 const router = require("./routes/routes")
 const PORT = process.env.PORT || 3000;
-
+const cookieParser = require('cookie-parser');
 
 app.use(cors())
 
+app.use(cookieParser())
 
-app.use("/Public", express.static('Public'));
+app.use("/public", express.static('public'));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
