@@ -2,8 +2,8 @@ import React, {
   useState, useCallback, memo, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import Spinner from '../Spinner/Spinner';
-import FormInput from '../FormInput/FormInput';
+import Spinner from '../../components/Spinner/Spinner';
+import FormInput from '../../components/FormInput/FormInput';
 import { isValidEmail, isValidPassword } from '../../utils/utils';
 import './Login.css';
 

@@ -88,7 +88,7 @@ const UserSignup = () => {
         />
         Quiero estar informado de los últimos eventos y promociones
       </label>
-      <input classname= 'submitBtn' type="Submit" />
+      <input className= 'submitBtn' type="Submit" />
     </form>
   );
 };
