@@ -5,8 +5,12 @@ var bcrypt = require('bcryptjs');
 
 
 const userAccs = {
-    postLogin: async (req, res) => {
+    getCookie:(req,res)=>{
         /* console.log(req) */
+        res.cookies('cookie_name');
+    },
+    postLogin: async (req, res) => {
+        console.log(req.token)
         const user = {
             email: req.body.userEmail,
             password: req.body.userPassword,
@@ -47,8 +51,9 @@ const userAccs = {
                                             } else {
                                                 
                                                 /* res.cookie('token', newToken) */
-                                                res.status(200).cookie('token', newToken).json({ type: 'Ok', message: 'Acceso'})
-                                                /* data.admin==0?res.cookie('token',newToken).status(200).json('dashboard'):res.cookie('token',newToken).status(200).json('admin') */
+                                                /* console.log(res) */
+                                                /* res.send('aaaa') */
+                                                res.status(200).json({ type: 'Ok', message: 'Acceso OK', token: newToken})
                                             }
                                         }
                                     } catch (err) {
@@ -82,7 +87,7 @@ const userAccs = {
                 try {
                     const data = await userModel.createUser(dataUser);
                     if (data.affectedRows == 1) {
-                        res.status(201).cookie('token', user.token).json({ type: 'Ok', message: 'Usuario creado correctamente'})
+                        res.status(200).json({ type: 'Ok', message: 'Usuario creado correctamente', token: user.token})
                     } else {
                         res.status(403).json({ type: 'Error', message: 'No se puede crear el usuario, inténtelo más tarde.'})
                     }
