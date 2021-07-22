@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import './App.css';
-import Map from './components/map/Map';
+import Map from './components/Map/Map';
 import "leaflet/dist/leaflet.css";
-//import Signup from './components/signup/Signup'
-import RegisterScreen from "./components/login/Login";
+import UserSignup from './components/Signup/UserSignup';
+import Login from './components/Login/Login';
+import Footer from './components/Footer/Footer';
+
 
 
 
@@ -13,7 +15,9 @@ function App() {
   return (
     <div className="App">
       <Map/>
-      <RegisterScreen/>
+      <Login/>
+      <UserSignup/>
+      <Footer/>
     
     </div>
     

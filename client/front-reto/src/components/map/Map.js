@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import L from "leaflet";
-import "../map/Map.css";
+import "./Map.css";
 import '../../App.css';
 
 function Map() {
@@ -18,7 +18,7 @@ function Map() {
     });
   }, []);
 
-  return <div id="map" style={{ height: "50vh" }} />;
+  return <div id="map" style={{ height: "30vh" }} />;
 }
 
 export default Map;

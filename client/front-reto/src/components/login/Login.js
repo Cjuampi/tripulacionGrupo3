@@ -1,164 +1,74 @@
-import React from "react";
-import '../login/Login.css';
+import React, {
+  useState, useCallback, memo, useEffect,
+} from 'react';
+import PropTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
+import FormInput from '../FormInput/FormInput';
+import { isValidEmail, isValidPassword } from '../../utils/utils';
+import './Login.css';
 
-class Input extends React.Component {
-  render() {
-    return (
-      <div>
-        <input
-          type={this.props.type}
-          id={this.props.id}
-          className="form-control"
-          placeholder={this.props.text}
-          value={this.props.value}
-          onChange={this.props.onChange}
-          required=""
-          autofocus=""
-          style={{}}
-        />
-      </div>
-    );
-  }
-}
+const Login = ({ className, ...props }) => {
+  const [email, setEmail] = useState({ value: '', error: '' });
+  const [password, setPassword] = useState({ value: '', error: '' });
+  const [disabled, setDisabled] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-/* class Image extends React.Component {//falta poner enlace a logo si queremos
-  render() {
-    return (
-      <div>
-        <img
-          className="mb-4"
-          src={this.props.src}
-          alt=""
-          width="72"
-          height="72"
-        />
-      </div>
-    );
-  }
-} */
+  const emailValidity = isValidEmail(email.value);
+  const passwordValidity = isValidPassword(password.value);
 
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1 className="h3 mb-3 font-weight-normal">{this.props.text}</h1>
-      </div>
-    );
-  }
-}
+  const formSubmit = useCallback(async (e) => {
+    e.preventDefault();
 
-class Button extends React.Component {
-  render() {
-    return (
-      <div>
-        <button
-          className="btn btn-lg btn-primary btn-block"
-          type="button"
-          onClick={this.props.onClick}
-        >
-          {this.props.placeholder}
-        </button>
-      </div>
-    );
-  }
-}
+    setLoading(true);
+    try {
+      await (await fetch('http://www.mocky.io/v2/5d9d9219310000153650e30b')).json();
 
-class RegisterScreen extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      signIn: false,
-      reload: true
-    };
-  }
-
-  onChangeEmail = event => {
-    console.log(event.target.value);
-    this.setState({
-      email: event.target.value
-    });
-  };
-
-  onChangePassWord = event => {
-    console.log(event.target.value);
-    this.setState({
-      password: event.target.value
-    });
-  };
-
-  onClick = event => {
-    // event.preventdefault();
-    console.log(event.target);
-    this.setState({
-      signIn: true
-    });
-
-    if (this.state.email !== "" && this.state.password !== "") {
-      this.setState({
-        reload: false
-      });
-
-      setTimeout(() => {
-        this.setState({
-          reload: true
-        });
-      }, 5000);
+      if (error)setError('');
+    } catch (err) {
+      console.error(err);
+      setError('Oops! Algo fue mal. Por favor refresca la página.');
     }
-  };
+    setLoading(false);
+  }, [error]);
 
-  render() {
-    const { email, password, signIn, reload } = this.state;
-    const altertStyle = {
-      color: "red"
-    };
-    return (
-      <React.Fragment>
-        {reload ? (
-          <form className="form-signin">
-            {/* <Image src="#" /> */}
-            <Header text="LogIn" />
-            <Input
-              id="inputEmail"
-              text="Email "
-              type="email"
-              value={email}
-              onChange={this.onChangeEmail}
-            />
-            <Input
-              id="inputPassword"
-              text="Password"
-              type="password"
-              value={password}
-              onChange={this.onChangePassWord}
-            />
-            <label>
-              <input type="checkbox" value="remember-me" /> Recuérdame
-            </label>
-            <Button className='submitBtn' placeholder="Enviar" onClick={this.onClick} />
+  const handleEmailChange = useCallback((e) => {
+    setEmail({ value: e.target.value, error: isValidEmail(e.target.value).error });
+  }, [setEmail]);
 
-            {(email === "" || password === "") && signIn ? (
-              <h6 color="red" style={altertStyle}>
-                El email y la contraseña no pueden estar vacíos
-              </h6>
-            ) : null}
-            
-          </form>
-        ) : (
-          <div className="form-signin">
-            <div className="loader" />
-            <hr />
-            <h3 className="h3 mb-3 font-weight-normal">
-              Login con <b>{email}</b>
-            </h3>
-            <h5>Password: {password}</h5>
-            
-          </div>
-        )}
-      </React.Fragment>
-    );
-  }
-}
+  const handlePasswordChange = useCallback((e) => {
+    setPassword({ value: e.target.value, error: isValidPassword(e.target.value).error });
+  }, [setPassword]);
 
-export default RegisterScreen;
+  useEffect(() => {
+    const newDisabledState = !!(emailValidity.error || passwordValidity.error);
+    if (disabled !== newDisabledState) setDisabled(newDisabledState);
+  }, [emailValidity.error, passwordValidity.error, disabled]);
+
+  return (
+    <div data-test="login-section" className={`login-section text-center ${className}`} {...props}>
+      
+      
+      <h1 className="no-margin login-section-header">Log in</h1>
+      
+      Usa tu cuenta D-Fun
+      
+      {loading ? <Spinner /> : null}
+      {error ? <div data-test="login-section-message" className="red-text">{error}</div> : null}
+      <form onSubmit={formSubmit}>
+        <FormInput type="email" name="email" placeholder="Email" required value={email.value} error={email.error} success={emailValidity.status} onChange={handleEmailChange} />
+        <FormInput type="password" name="password" placeholder="Password" required value={password.value} error={password.error} success={passwordValidity.status} onChange={handlePasswordChange} />
+        <FormInput type="submit" name="submit" value="Login" className="login-section-submit cursor-pointer" disabled={disabled || loading} />
+      </form>
+    </div>
+  );
+};
+
+Login.propTypes = {
+  className: PropTypes.string,
+};
+Login.defaultProps = {
+  className: '',
+};
+
+export default memo(Login);
