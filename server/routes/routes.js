@@ -1,11 +1,14 @@
-const router = require("express").Router();
-const userController = require('../controllers/app.controllers')
+const router = require('express').Router();
+const pagesCntrll = require('../controllers/pages.controller')
 const useraccsCntrll = require('../controllers/useraccs.controller')
 
 
 
-router.get("/",userController.home);
-router.post("/login",useraccsCntrll.postLogin)
+router.get("/",pagesCntrll.home);
+router.post("/logIn",useraccsCntrll.postLogin)
 router.post("/singUp", useraccsCntrll.postSingUp)
+router.get("/token",useraccsCntrll.getCookie)
+
+
 
 module.exports = router;
