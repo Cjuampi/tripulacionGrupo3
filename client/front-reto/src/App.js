@@ -1,4 +1,5 @@
 import React from "react";
+import { useContext } from "react";
 import { BrowserRouter} from 'react-router-dom';
 import './App.css';
 //import Map from './components/Map/Map';
@@ -11,7 +12,8 @@ import Main from './components/Main/Main';
 
 
 function App() {
-
+  /* console.log(window.location.pathname) */
+  
   return (
     <div className="App">
       <BrowserRouter>

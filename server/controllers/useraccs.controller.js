@@ -10,7 +10,7 @@ const userAccs = {
         res.cookies('cookie_name');
     },
     postLogin: async (req, res) => {
-        console.log(req.token)
+        /* console.log(req.token) */
         const user = {
             email: req.body.userEmail,
             password: req.body.userPassword,
@@ -36,7 +36,7 @@ const userAccs = {
                                     let newToken = fncUtils.generateToken(user.email)
                                     let updateResult = async () => {
                                         let result = await userModel.insertNewToken(user.email, newToken)
-                                        console.log(result)
+                                        /* console.log(result) */
                                         return result
                                     }
                                     let updateToken = updateResult()
@@ -73,7 +73,8 @@ const userAccs = {
             res.status(500).json({ type: 'Error', message: 'Ocurrio un error inesperado!' })
         }
     },
-    postSingUp: async (req, res) => {
+    postSignUp: async (req, res) => {
+        /* console.log(req) */
         const user = {
             name: req.body.userName,
             email: req.body.userEmail,
@@ -81,29 +82,31 @@ const userAccs = {
             token: fncUtils.generateToken(req.body.userEmail)
         }
         const dataUser = Object.values(user)
+       
         try {
             const data = await userModel.existUser(req.body.userEmail)
+            console.log('dataExisteUser',data)
             if (data == undefined) {
                 try {
                     const data = await userModel.createUser(dataUser);
                     if (data.affectedRows == 1) {
                         res.status(200).json({ type: 'Ok', message: 'Usuario creado correctamente', token: user.token})
-                    } else {
-                        res.status(403).json({ type: 'Error', message: 'No se puede crear el usuario, inténtelo más tarde.'})
+                    } else {//409
+                        res.status(200).json({type: 'Error', message: 'No se puede crear el usuario, inténtelo más tarde.'})
                     }
-                } catch (error) {
-                    res.status(500).json({ type: 'Error', message: 'El usuario no fue creado'})
+                } catch (error) {//500
+                    res.status(200).json({ type: 'Error', message: 'El usuario no fue creado'})
                 }
             } else {
-                if (data.hasOwnProperty('numError')) {
-                    res.status(500).json({ type: 'Error', message: 'No se puede ejecutar la acción, intentelo más tarde'})
-                } else {
-                    res.status(403).json({ type: 'Error', message: 'Usuario ya registrado, inicia sesión para continuar'})
+                if (data.hasOwnProperty('numError')) {//500
+                    res.status(200).json({type: 'Error', message: 'No se puede ejecutar la acción, intentelo más tarde'})
+                } else {//403
+                    res.status(200).json({ type: 'Error', message: 'Usuario ya registrado, inicia sesión para continuar'})
                 }
             }
-        } catch (err) {
+        } catch (err) {//500
             console.log(err)
-            res.status(500).json({ type: 'Error', message: 'Ocurrio un error inesperado :('})
+            res.status(200).json({ type: 'Error', message: 'Ocurrio un error inesperado :('})
 
         }
     }

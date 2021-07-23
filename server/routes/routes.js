@@ -5,9 +5,8 @@ const useraccsCntrll = require('../controllers/useraccs.controller')
 
 
 router.get("/",pagesCntrll.home);
-router.post("/logIn",useraccsCntrll.postLogin)
-router.post("/singUp", useraccsCntrll.postSingUp)
-router.get("/token",useraccsCntrll.getCookie)
+router.post("/logIn",useraccsCntrll.postLogin);
+router.post("/signUp", useraccsCntrll.postSignUp);
 
 
 
