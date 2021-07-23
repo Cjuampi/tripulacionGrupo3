@@ -1,23 +1,23 @@
 import React from "react";
 import "./Footer.css";
+import logo from '../../assets/logo.png';
 
 function Footer() {
   return (
     <footer className="main-footer">
-      <h1 className="quotes">
-        logo????
-      </h1>
-      <div className="container">
-        <img alt="logo-instagram"
-          className="icons"
-          src="https://res.cloudinary.com/dnefeccae/image/upload/v1618531048/Bright%20flash/instagram-logo_eqmuft.png"
-        />
-        <img alt="logo-contact"
-          className="icons"
-          src="https://res.cloudinary.com/dnefeccae/image/upload/v1618531084/Bright%20flash/email-logo_q0ectn.png"
-        />
-        <h2 className="nav_about">Ayuda</h2>
+      <div className="logo_container">
+        <img className="logo" src={logo} alt="logo" />
       </div>
+      <div className="contact">
+        <h4>Nuestra empresa</h4>
+        <p>Quienes somos</p>
+        <p>Anuncia tus eventos</p>
+        <p>Servicios</p>
+        <p><span>Contacto:</span>600 900 900</p>
+        <p><span>Email:</span>name@dfun.com</p>
+      </div>
+      
+     
     </footer>
   );
 }

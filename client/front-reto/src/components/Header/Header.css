@@ -1,0 +1,10 @@
+.menu_header{
+    width: 100vw;
+    margin-bottom: 20px;
+    background: #F8F8F8;
+}
+
+.menu{
+    z-index: 0;
+    margin: 44px;
+}

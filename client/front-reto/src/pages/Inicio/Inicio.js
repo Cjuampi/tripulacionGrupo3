@@ -1,6 +1,7 @@
 import React from "react";
 import OfferList from "../../components/OffersList/OffersList";
 import SearchBar from "../../components/Search/Search";
+import Header from "../../components/Header/Header";
 
 
 
@@ -11,6 +12,7 @@ function Inicio() {
 
   return (
 <div>
+    
     <SearchBar/>
     <OfferList datos={datos}/>
     
