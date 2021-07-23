@@ -1,6 +1,6 @@
 import React from "react";
 import Offer from '../Offer/Offer';
-//falta importar css
+import '../OffersList/OffersList.css'
 
 
 
@@ -14,7 +14,7 @@ import Offer from '../Offer/Offer';
 
 
   return (
-    <div>
+    <div className="offerList">
         {renderOffers()}
     </div>
   );

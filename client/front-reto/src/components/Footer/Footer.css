@@ -6,7 +6,7 @@
     bottom: 0;
     left: 0;
     width: 100vw;
-    height: 50px;
+    height: 20px;
     font-weight: bold;
     font-size: 10px;
   }
@@ -22,13 +22,13 @@
     line-height: 1;
     text-decoration: none;
     color: inherit;
-    height: 19px;
+    height: 16px;
     
     padding-left: 10px;
     padding-right: 10px;
   }
+
   .container {
-    
     font-size: x-small;
     font-style: roboto serif;
     padding-top: 7em;
@@ -37,7 +37,7 @@
     text-align: start;
     left: 0;
     width: 100vw;
-    height: 60px;
+    height: 40px;
   }
   .nav_about {
     display: inline-block;

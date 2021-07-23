@@ -51,7 +51,7 @@ const Login = ({ className, ...props }) => {
       
       <h1 className="no-margin login-section-header">Log in</h1>
       
-      Usa tu cuenta D-Fun
+      
       
       {loading ? <Spinner /> : null}
       {error ? <div data-test="login-section-message" className="red-text">{error}</div> : null}
