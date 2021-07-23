@@ -8,7 +8,9 @@ function Map() {
     // create map
     L.map("map", {
       center: [40.4233784, -3.692763,15],
-      zoom: 20,
+      zoomControl:false,
+      attributionControl:false,
+      zoom: 15,
       layers: [
         L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
           attribution:
