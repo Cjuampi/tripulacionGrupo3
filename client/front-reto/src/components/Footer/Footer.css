@@ -1,0 +1,45 @@
+.main-footer {
+    color: white;
+    background-color: #ef4538;
+    padding-top: 3em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 20px;
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .quotes {
+    font-size: x-small;
+    font-display: padding-top;
+    font-style: "roboto";
+  }
+  
+  .icons {
+    width: auto;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+    color: inherit;
+    height: 16px;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .container {
+    font-size: x-small;
+    font-style: roboto serif;
+    padding-top: 7em;
+    position: fixed;
+    bottom: 0;
+    text-align: start;
+    left: 0;
+    width: 100vw;
+    height: 40px;
+  }
+  .nav_about {
+    display: inline-block;
+    line-height: 0.5;
+  }
