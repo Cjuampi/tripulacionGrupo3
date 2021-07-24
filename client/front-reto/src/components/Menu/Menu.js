@@ -6,7 +6,7 @@ import '../Menu/Menu.css';
 export default props => {
   return (
     // Pass on our props
-    <div>
+    <div className="menu_burger">
     <Menu {...props}>
       <a className="menu-item" href="/">
         Home

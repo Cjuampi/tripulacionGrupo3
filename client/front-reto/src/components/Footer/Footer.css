@@ -6,7 +6,7 @@
     background-color: #F8F8F8;
     box-shadow: 2px 2px 10px grey;
     width: 100vw;
-    height: 80px;
+    height: 190px;
     font-size: 10px;
   }
 
@@ -15,19 +15,23 @@
     flex-direction: column;
     text-align: left;
     font-size: 16px;
-    margin:5px;
+    margin-left:15px;
   }
 
   .contact>p{
     margin:0;
   }
 
-  .logo_container{
-
+  .bold{
+    font-weight: bold;
   }
 
-  .logo{
-    margin-bottom: 20px;
+  
+
+  .logo-footer{
+    margin-top: 50px;
+    margin-right: 20px;
+    
   }
 
   .quotes {
@@ -52,4 +56,15 @@
   .nav_about {
     display: inline-block;
     line-height: 0.5;
+  }
+
+  .somos, .telephone{
+    margin-bottom: 10px;
+    word-spacing: 5px;
+  }
+
+  
+
+  p{
+    margin: 0px;
   }

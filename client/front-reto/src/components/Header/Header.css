@@ -1,10 +1,17 @@
 .menu_header{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: flex-end;
+    justify-content: space-around;
     width: 100vw;
     margin-bottom: 20px;
+    margin-top: 0px;
     background: #F8F8F8;
 }
 
 .menu{
-    z-index: 0;
-    margin: 44px;
+    z-index: 10;
+    margin-left: 10px;
+    margin-bottom: 40px;
 }
