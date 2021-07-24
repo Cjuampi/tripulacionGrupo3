@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-import Map from '../../components/Map/Map';
+
 import uCookies from 'universal-cookie';
 import './Login.css';
 
@@ -54,7 +54,7 @@ const Login = ({ className, ...props }) => {
 
   return (
     <div>
-      <Map/>
+ 
       <div className="login-section">
         <h1>Acceso</h1>
         Usa tu cuenta D-Fun
