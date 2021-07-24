@@ -6,7 +6,7 @@ const userMySQL = {
         let result;
         try {
             conn = await pool.getConnection();
-            let sqlQuery = ("INSERT INTO users value (?,?,?,?)")
+            let sqlQuery = ("INSERT INTO usuarios (nombre, email, password, token) value (?,?,?,?)")
             result = await conn.query(sqlQuery,data);
             /* console.log('result',result); */
         } catch (err) {
@@ -22,7 +22,7 @@ const userMySQL = {
         let result;
         try {
             conn = await pool.getConnection();
-            let sqlQuery = ("select email from users where email=?")
+            let sqlQuery = ("select email from usuarios where email=?")
             result = await conn.query(sqlQuery,email);
             console.log('resultUserExiste',result);
             result = result[0]
@@ -40,7 +40,7 @@ const userMySQL = {
         let result;
         try {
             conn = await pool.getConnection();
-            let sqlQuery = ("select * from users where email=?")
+            let sqlQuery = ("select * from usuarios where email=?")
             result = await conn.query(sqlQuery,email);
             result = result[0]
             /* console.log('result User Existe',result); */
@@ -57,7 +57,7 @@ const userMySQL = {
         let result;
         try {
             conn = await pool.getConnection();
-            let sqlQuery = ("update users set token=? where email=?")
+            let sqlQuery = ("update usuarios set token=? where email=?")
             result = await conn.query(sqlQuery,[token,email]);
             /* console.log(result) */
         } catch (err) {
