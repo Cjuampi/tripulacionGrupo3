@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-
 import uCookies from 'universal-cookie';
 import './Login.css';
 
@@ -60,8 +59,16 @@ const Login = ({ className, ...props }) => {
         <form onSubmit={formSubmit}>
           <input className="input_email" type="email" name="email" placeholder="Correo" required onChange={handleEmailChange} />
           <input className="input_password" type="password" name="password" placeholder="Contraseña" required onChange={handlePasswordChange} />
-
+          <div className="toSignup">
           <input className="login_button" type="submit" name="submit" value="INICIAR SESIÓN" />
+          <div className="link">
+          <Link to="/signup">Aún no tienes cuenta, regístrate aquí</Link>
+          </div>
+          
+          </div>
+          
+
+          
         </form>
       </div>
     </div>

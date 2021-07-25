@@ -23,7 +23,7 @@
 
 .iniciar{
     color: #FF4500;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .input_email{
@@ -53,5 +53,15 @@
     width:156px;
     height:40px;
     border-radius: 8px;
-    margin-top: 40px;
+    margin-top: 50px;  
+    margin-bottom: 30px; 
+}
+
+.toSignup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a{
+    color: #000000;
 }
