@@ -81,15 +81,15 @@ const UserSignup = () => {
   return (
     <div className="login-section">
       <form className="UserSignup" onSubmit={handleSubmit}>
-        <h1>Registro</h1>
-        <label >Nombre</label>
+        <h1 className="registro">Registro</h1>
+        <label className="name" >Nombre</label>
         <input id="userName" placeholder="Usuario" name="userName" type="text" className="inputFormLS" onChange={handleNameChange} required/>
-        <label >Email</label>
+        <label className="email">Email</label>
         <input id="Email" placeholder="Email"  name="email" type="email" className="inputFormLS" onChange={handleEmailChange} required/>
-        <label>Contraseña</label>
-        <input id="password" placeholder="Password"  name="password" type="password" className="inputFormLS" onChange={handlePasswordChange} required />
-        <label >Confirme Contraseña</label>
-        <input id="passwordConfirmation" placeholder="Confirme Password" name="passwordConfirmation" className="inputFormLS" type="password" onChange={handleRePasswordChange} required/>
+        <label className="password">Contraseña</label>
+        <input id="password" placeholder="Contraseña"  name="password" type="password" className="inputFormLS" onChange={handlePasswordChange} required />
+        <label className="confirm" >Confirme Contraseña</label>
+        <input id="passwordConfirmation" placeholder="Confirme Contraseña" name="passwordConfirmation" className="inputFormLS" type="password" onChange={handleRePasswordChange} required/>
         <input className='submitBtn' type="Submit" />
       </form>
     </div>
