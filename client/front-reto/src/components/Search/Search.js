@@ -10,21 +10,19 @@ const SearchBar = (props) => {
         setKeyWord(event.target.value)
     }
 
-   const clickSendValue = () => {
+   const clickSendValue = (event) => {
+        event.preventDefault()
         props. fncWrdSrch(keyWord)
+        event.target.reset();
     }
-
-   /* useEffect(()=>{ 
-        if(keyWord){
-            clickSendValue()
-        }
-    },[keyWord]) */
 
     console.log('theprops,', props)
     return(
         <div className="topnav">
-            <input type="text" placeholder="Buscar..." onChange={getSearchValue}></input>
-            <button className="search_button" onClick={clickSendValue} >Buscar</button>
+            <form onSubmit={clickSendValue}>
+                <input type="text" placeholder="Buscar..." onChange={getSearchValue}></input>
+                <input className="search_button" type="submit" value="Buscar"/>
+            </form>
         </div>
     )
 
