@@ -63,5 +63,9 @@
     align-items: center;
 }
 a{
-    color: #000000;
+    color: #000000;   
+}
+
+.link{
+    margin-bottom: 40px;
 }
