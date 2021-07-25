@@ -6,11 +6,12 @@ import '../Offer/Offer.css'
 
 const Offer= (props) => {
 
-        let {url,texto} = props.data;
+        let {imagen_url,nombre_evento, precio} = props.data;
         return (
             <section className='offers'>
-                 <img className="photo" src= {url} alt="foto evento"/>
-                 <p className="description"> {texto} </p>
+                 <img className="photo" src= {imagen_url} alt="foto evento"/>
+                 <p className="description"> {nombre_evento} </p>
+                 <p className = "precio" >{precio}</p>
             </section>
         )
     }

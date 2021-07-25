@@ -11,7 +11,7 @@ const pageMySQL = {
             result = await conn.query(sqlQuery, data);
             /* console.log('result',result[0]); */
         } catch (err) {
-            result = { codeError: err.code, numError: err.errno }
+            result = [{ codeError: err.code, numError: err.errno }]
             console.log(err)
         } finally {
             if (conn) conn.end();
