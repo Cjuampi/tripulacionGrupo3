@@ -2,12 +2,7 @@
 .login-section{
     margin: 0px;
     box-shadow: 0px 0px 4px #888888;
-    padding: 35px 15px;
-}
-
-
-.login-section-header{
-    font-size: 44px;
+    padding: 10px 15px;
 }
 
 .login-section-submit{
@@ -24,4 +19,39 @@
 
 .red-text{
     color:red;
+}
+
+.iniciar{
+    color: #FF4500;
+    margin-bottom: 100px;
+}
+
+.input_email{
+    width:328px;
+    height:48px;
+    border-radius: 8px;
+    font-size: 14px;
+    color:#52555F;
+    padding-left:10px;
+    border: 2px solid #2A2A2A;
+}
+
+.input_password{
+    width:328px;
+    height:48px;
+    border-radius: 8px;
+    font-size: 14px;
+    color:#52555F;
+    padding-left:10px;
+    border: 2px solid #2A2A2A;
+    margin-top: 20px;
+}
+
+.login_button{
+    background:#1F3A93;
+    color:#F8F8F8;
+    width:156px;
+    height:40px;
+    border-radius: 8px;
+    margin-top: 40px;
 }

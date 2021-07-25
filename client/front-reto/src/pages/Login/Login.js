@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-import Map from '../../components/Map/Map';
+
 import uCookies from 'universal-cookie';
 import './Login.css';
 
@@ -54,14 +54,14 @@ const Login = ({ className, ...props }) => {
 
   return (
     <div>
-      <Map/>
+      
       <div className="login-section">
-        <h1>Acceso</h1>
-        Usa tu cuenta D-Fun
+        <h1 className="iniciar">Iniciar sesión</h1>
         <form onSubmit={formSubmit}>
-          <input type="email" name="email" placeholder="Correo" required onChange={handleEmailChange} />
-          <input type="password" name="password" placeholder="Contraseña" required onChange={handlePasswordChange} />
-          <input type="submit" name="submit" value="Login" />
+          <input className="input_email" type="email" name="email" placeholder="Correo" required onChange={handleEmailChange} />
+          <input className="input_password" type="password" name="password" placeholder="Contraseña" required onChange={handlePasswordChange} />
+
+          <input className="login_button" type="submit" name="submit" value="INICIAR SESIÓN" />
         </form>
       </div>
     </div>
