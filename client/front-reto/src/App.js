@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter} from 'react-router-dom';
 import './App.css';
 import "leaflet/dist/leaflet.css";
@@ -11,12 +11,10 @@ import { valuesContext } from './contexts/contextValue'
 
 
 function App() {
-  /* console.log(window.location.pathname) */
 
   const cntxtValues = {
     token: utils.getCookieToken()
   }
-  
 
   return (
     <div className="App">

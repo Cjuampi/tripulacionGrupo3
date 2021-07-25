@@ -3,7 +3,8 @@ import {Route, Switch} from 'react-router-dom';
 import Inicio from '../../pages/Inicio/Inicio';
 import Login from '../../pages/Login/Login';
 import Sigup from '../../pages/Signup/Signup';
-import MapDetail from '../../pages/MapaAmpliado/MapaAmpliado'
+import MapDetail from '../../pages/MapaAmpliado/MapaAmpliado';
+import Events from '../../pages/Events/Events';
 import './Main.css';
 
 const Main= () =>{
@@ -16,8 +17,8 @@ const Main= () =>{
                         <Route path="/login" component={Login} />
                         <Route path="/signup" component={Sigup} />
                         <Route path="/mapDetail" component={MapDetail} />
-                        {/* <Route path="/location" component={Location} />
-                        <Route path="/contact" component={Contact} />
+                        <Route path="/events" component={Events} />
+                        {/* <Route path="/contact" component={Contact} />
                         <Route path="/Counter" component={Counter} /> */}
                     </Switch>
                 </div>

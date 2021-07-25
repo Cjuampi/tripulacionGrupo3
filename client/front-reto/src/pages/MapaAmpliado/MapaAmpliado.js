@@ -8,6 +8,7 @@ const MapaAmpliado = () => {
     
     const { token } = useContext(valuesContext)
     const [evento, setEvento] = useState(null)
+
     const datos = [
         { name: "event1", coordinates: [40.41709791991183, -3.7035048595788638] },
         { name: "evnet2", coordinates: [40.418038638327005, -3.7091813684492365] },
