@@ -53,7 +53,7 @@ const Login = ({ className, ...props }) => {
 
   return (
     <div>
-      
+ 
       <div className="login-section">
         <h1 className="iniciar">Iniciar sesión</h1>
         <form onSubmit={formSubmit}>

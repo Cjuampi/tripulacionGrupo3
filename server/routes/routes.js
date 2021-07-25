@@ -8,6 +8,8 @@ router.get("/",pagesCntrll.home);
 router.post("/logIn",useraccsCntrll.postLogin);
 router.post("/signUp", useraccsCntrll.postSignUp);
 
+router.post("/fndWrdAllEvnt", pagesCntrll.findWrdAllEvnt);
+
 
 
 module.exports = router;
