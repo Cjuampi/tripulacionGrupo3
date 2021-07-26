@@ -8,7 +8,7 @@ import '../OffersList/OffersList.css'
    console.log('propsOFFER',props)
   const renderOffers = () => {
     return props.datos.map((offer, i) => (
-       <Offer data={offer} key={i}  />
+       <Offer data={offer} key={i} cardId={offer.id_evento}/>
     ));
   }
 

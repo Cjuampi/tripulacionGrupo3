@@ -43,7 +43,7 @@ const MediaCard = (props) => {
         strBox = str.substring(0, 50);
     }
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} id={props.cardId}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
