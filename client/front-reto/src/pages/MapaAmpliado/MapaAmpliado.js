@@ -10,10 +10,11 @@ const MapaAmpliado = () => {
     const [evento, setEvento] = useState(null)
 
     const datos = [
-        { name: "event1", coordinates: [40.41709791991183, -3.7035048595788638] },
-        { name: "evnet2", coordinates: [40.418038638327005, -3.7091813684492365] },
-        { name: "evnet10", coordinates: [41.40331560843518, 2.1743293697393735] },
-        { name: "evnet11", coordinates: [41.40334944364515, 2.178271913467759] }
+        { name: "event1", coordinates:  [40.3979, -3.69016] },
+        { name: "evnet2", coordinates:  [40.4078,-3.72524] },
+        { name: "evnet10", coordinates: [40.4069,-3.72673] },
+        { name: "evnet11", coordinates: [40.4185,-3.69638] },
+        { name: "event14", coordinates:  [40.4223,-3.68419] }
     ]
 
 
