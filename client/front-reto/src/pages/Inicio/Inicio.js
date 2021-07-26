@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OfferList from "../../components/OffersList/OffersList";
 import SearchBar from "../../components/Search/Search";
 import bg_box1 from "../../assets/bg_box1.png";
@@ -8,26 +8,25 @@ import vision from "../../assets/vision.png";
 import smile from "../../assets/smile.png";
 
 import "../Inicio/Inicio.css";
+import axios from "axios";
 
 function Inicio() {
-  const datos = [
-    {
-      url: "https://uecluster.blob.core.windows.net/images/planetainteligente/1568717270_orgi2.jpg",
-      texto: "Concierto de rock vsnvnenvnansvlav  ",
-    },
-    {
-      url: "https://uecluster.blob.core.windows.net/images/planetainteligente/1568717270_orgi2.jpg",
-      texto: "Concierto de rock lklkjsalvlamvmm ",
-    },
-    {
-      url: "https://uecluster.blob.core.windows.net/images/planetainteligente/1568717270_orgi2.jpg",
-      texto: "Concierto de rock wcernneanvlerrnlenl",
-    },
-    {
-      url: "https://uecluster.blob.core.windows.net/images/planetainteligente/1568717270_orgi2.jpg",
-      texto: "Concierto de rock vsnvnenvnansvlav  ",
-    },
-  ];
+  const [dEventos, setDEventos] = useState([]);
+  
+  const destAxios = async () => {
+    let result = await axios.post('http://localhost:5000/fndDestEvent')
+    setDEventos(result.data)
+    renderDEvents()
+  }
+
+  const renderDEvents = ()=>{
+    return  <OfferList datos={dEventos} />  
+  }
+
+
+  useEffect(()=>{
+    destAxios()
+  },[])
 
   return (
     <div className="inicio">
@@ -38,7 +37,8 @@ function Inicio() {
 
       <SearchBar />
       <h2 className="destacados">Eventos destacados</h2>
-      <OfferList datos={datos} />
+      {/* <OfferList datos={datos} /> */}
+      {renderDEvents()}
       <h2 className="destacados">Nuestros valores</h2>
       <div className="mision">
         <img className="star" src={mision} alt="mision" />

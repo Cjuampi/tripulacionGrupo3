@@ -1,18 +1,68 @@
+
 import React from 'react';
-import '../Offer/Offer.css'
-//falta importar css
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
+const useStyles = makeStyles({
+    root: {
+        maxWidth: 327,
+        height: '400px',
+        boxShadow: '2px 2px 5px grey',
+        background: '#1F3A93',
+        fontSize: '16px',
+        borderRadius: '8px',
+        color: '#f8f8f8',
+        marginBottom: '16px',
+    },
+    media: {
+        height: '220px',
+    },
+    des: {
+        color: '#f8f8f8',
+        padding: '16px',
+        fontSize: '18px',
 
+    },
+    des2: {
+        fontSize: '14px',
+    },
+});
 
-const Offer= (props) => {
-
-        let {url,texto} = props.data;
-        return (
-            <section className='offers'>
-                 <img className="photo" src= {url} alt="foto evento"/>
-                 <p className="description"> {texto} </p>
-            </section>
-        )
+const MediaCard = (props) => {
+    const classes = useStyles();
+    let { imagen_url, nombre_evento, descripcion, precio } = props.data;
+    let strBox='';
+    if(descripcion){
+        let str = descripcion
+        strBox = str.substring(0, 50);
     }
-
-    export default Offer;
+    return (
+        <Card className={classes.root} id={props.cardId}>
+            <CardActionArea>
+                <CardMedia
+                    className={classes.media}
+                    image={imagen_url}
+                    title="Contemplative Reptile"
+                />
+                <CardContent className={classes.des}>
+                    <Typography variant="h6" >
+                        {nombre_evento}
+                    </Typography>
+                    <Typography className={classes.des2} >
+                        {strBox} (leer más)
+                    </Typography>
+                    <Typography >
+                        {precio}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+        </Card>
+    );
+}
+export default MediaCard;

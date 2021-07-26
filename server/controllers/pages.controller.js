@@ -17,9 +17,18 @@ const pagesControl = {
         try{
             let data = await pageModel.allWords(dataWord)
             res.status(200).json(data)
-            console.log('el data:',data)
+            data = [{ codeError:"Error en consultar los datos", numError: -999 }]
         }catch(err){
             console.log(err)
+        }
+    },
+    findDestacados: async(req,res) =>{
+        try{
+            let data = await pageModel.destEvents()
+            res.status(200).json(data)
+        }catch(err){   
+            console.log(err)
+            data = [{ codeError:"Error en consultar los datos", numError: -999 }]
         }
     }
 }
