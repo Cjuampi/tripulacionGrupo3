@@ -15,7 +15,7 @@ const MapMarkers = (props) => {
           props.changeEvent(nombre)
 
         }
-        changeEvent(element.name)   
+        changeEvent(element.i)   
       },
     }} >
         <MarkerPopup name={element.name} />
