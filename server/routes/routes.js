@@ -10,6 +10,6 @@ router.post("/signUp", useraccsCntrll.postSignUp);
 
 router.post("/fndWrdAllEvnt", pagesCntrll.findWrdAllEvnt);
 router.post("/fndDestEvent", pagesCntrll.findDestacados);
-
+router.post("/fndDetailEvent", pagesCntrll.getDetailEvent)
 
 module.exports = router;

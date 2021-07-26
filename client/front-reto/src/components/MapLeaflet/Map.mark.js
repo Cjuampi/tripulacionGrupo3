@@ -13,7 +13,8 @@ const MapMarkers = (props) => {
       click: (e) => {
         const changeEvent = (nombre) =>{
           props.changeEvent(nombre)
-
+          props.changeCenter({center:element.coordinates, zoom:8});
+          
         }
         changeEvent(element.i)   
       },

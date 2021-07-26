@@ -30,7 +30,23 @@ const pagesControl = {
             console.log(err)
             data = [{ codeError:"Error en consultar los datos", numError: -999 }]
         }
+    },
+    getDetailEvent: async(req, res )=>{
+        const obj = {
+            id: req.body.id_evento
+        }
+
+        const dataWord = Object.values(obj)
+
+        try{
+            let data = await pageModel.detailEvent(dataWord)
+            res.status(200).json(data)
+        }catch(err){
+            console.log(err)
+            data = [{ codeError:"Error en consultar los datos", numError: -999 }]
+        }
     }
+
 }
 
 module.exports = pagesControl;
