@@ -2,6 +2,7 @@
 import React from "react";
 import { bubble as Menu } from "react-burger-menu";
 import '../Menu/Menu.css';
+import LogOut from "../Logout/Logout";
 
 export default props => {
   return (
@@ -23,9 +24,10 @@ export default props => {
       <a className="menu-item" href="/bookings">
         Mis reservas
       </a>
-      <a className="menu-item" href="/logout">
+      <LogOut/>
+      {/* <a className="menu-item" href="/logout">
         LogOut
-      </a>
+      </a> */}
     </Menu>
     </div>
   );
