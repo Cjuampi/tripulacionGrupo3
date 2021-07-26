@@ -62,7 +62,7 @@ const Login = ({ className, ...props }) => {
           <div className="toSignup">
           <input className="login_button" type="submit" name="submit" value="INICIAR SESIÓN" />
           <div className="link">
-          <Link to="/signup">Aún no tienes cuenta, regístrate aquí</Link>
+          <Link to="/signup">¿Aún no tienes cuenta? Regístrate aquí</Link>
           </div>
           
           </div>
