@@ -12,8 +12,12 @@ import { valuesContext } from './contexts/contextValue'
 
 function App() {
 
+  const [detailE, setDetailE ] = useState('')
+  
   const cntxtValues = {
-    token: utils.getCookieToken()
+    token: utils.getCookieToken(),
+    detailE,
+    setDetailE
   }
 
   return (
