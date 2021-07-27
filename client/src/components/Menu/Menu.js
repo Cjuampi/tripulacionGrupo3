@@ -9,22 +9,11 @@ export default props => {
     // Pass on our props
     <div className="menu_burger">
     <Menu {...props}>
-      <a className="menu-item" href="/">
-        Home
-      </a>
-
-      <a className="menu-item" href="/login">
-        Login
-      </a>
-
-      {/* <a className="menu-item" href="/signup">
-        Mis favoritos
-      </a>
-
-      <a className="menu-item" href="/bookings">
-        Mis reservas
-      </a> */}
-      <LogOut/>
+      <a className="menu-item" href="/"><p>Inicio</p></a>
+      <a className="menu-item" href="/signup"><p>Registrarse</p></a>
+      <a className="menu-item" href="/login"><p>Iniciar sesión</p></a>
+      <a className="menu-item" href="/bookings"><p>Buscar en el Mapa</p></a>
+      <LogOut />
       {/* <a className="menu-item" href="/logout">
         LogOut
       </a> */}
