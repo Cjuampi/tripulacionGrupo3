@@ -12,7 +12,7 @@ const ButtonContainer = styled.span`
   z-index: 1000;
   cursor: pointer;
   animation: fadeIn 0.3s;
-  opacity: 0.5;
+  opacity: 0.8;
   background: #FF4500;
   border-radius: 4px;
   transition: opacity 0.4s, color ease-in-out 0.2s, background ease-in-out 0.2s;
