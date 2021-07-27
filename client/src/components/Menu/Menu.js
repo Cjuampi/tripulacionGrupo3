@@ -17,13 +17,13 @@ export default props => {
         Login
       </a>
 
-      <a className="menu-item" href="/signup">
+      {/* <a className="menu-item" href="/signup">
         Mis favoritos
       </a>
 
       <a className="menu-item" href="/bookings">
         Mis reservas
-      </a>
+      </a> */}
       <LogOut/>
       {/* <a className="menu-item" href="/logout">
         LogOut

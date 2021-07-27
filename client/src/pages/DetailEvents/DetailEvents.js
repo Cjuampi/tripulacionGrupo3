@@ -35,6 +35,11 @@ const DetailEvents = () =>{
         }
         
     }
+    //console.log(sAEvent.fecha_inicio)
+    const date=new Date(sAEvent.fecha_inicio);
+    //console.log(date)
+    const cleanDate = date.toDateString();
+    
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -64,10 +69,13 @@ const DetailEvents = () =>{
                     </div>
                     <div className="listEventDes">
                         <ul>
-                            <li>Fecha: {sAEvent.fecha_inicio}</li>
-                            <li>Accesibilidad: {sAEvent.accesibilidad}</li>
-                            <li>Contacto: {sAEvent.contacto}</li>
-                            <li>Dirección: {sAEvent.direccion}</li>
+                            <li><span className="bold">Fecha: </span>{cleanDate}</li>
+                            <br></br>
+                            <li><span className="bold">Accesibilidad:</span> {sAEvent.accesibilidad}</li>
+                            <br></br>
+                            <li><span className="bold">Contacto: </span>{sAEvent.contacto}</li>
+                            <br></br>
+                            <li><span className="bold">Dirección: </span>{sAEvent.direccion}</li>
                         </ul>
                     </div>
                     <div className="mapaEvent">
