@@ -12,7 +12,7 @@ export default props => {
       <a className="menu-item" href="/"><p>Inicio</p></a>
       <a className="menu-item" href="/signup"><p>Registrarse</p></a>
       <a className="menu-item" href="/login"><p>Iniciar sesión</p></a>
-      <a className="menu-item" href="/bookings"><p>Buscar en el Mapa</p></a>
+      <a className="menu-item" href="/mapDetail"><p>Buscar en el Mapa</p></a>
       <LogOut />
       {/* <a className="menu-item" href="/logout">
         LogOut

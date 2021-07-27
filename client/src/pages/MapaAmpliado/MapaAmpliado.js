@@ -3,7 +3,9 @@ import { useContext } from 'react';
 import { valuesContext } from '../../contexts/contextValue';
 import MapLeaflet from '../../components/MapLeaflet/Mapview';
 import MapOffer from '../../components/MapOffer/MapOffer';
-import '../MapaAmpliado/MapaAmpliado.css'
+import '../MapaAmpliado/MapaAmpliado.css';
+import SearchBar from "../../components/Search/Search";
+
 
 
 const MapaAmpliado = () => {
@@ -12,9 +14,9 @@ const MapaAmpliado = () => {
     const [evento, setEvento] = useState(0)
     //imagen_url, nombre_evento, descripcion, precio
     const datos = [
-        { name: "event1", coordinates: [40.41709791991183, -3.7035048595788638],imagen_url:"https://upload.wikimedia.org/wikipedia/commons/d/d9/Madrid_-_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa_%28MNCARS%29_03.JPG" ,nombre_evento: "Concierto de opera", descripcion: "nsnlije fñmvevmmperpo k fñegergerpkñge kñeeg,e,", precio: 15},
+        { name: "event1", coordinates: [40.4182199, -3.71057900866654],imagen_url:"https://www.myoperaplayer.com/sites/default/files/2019-10/SalaPrincipal_TeatroReal_LIGHT.jpg" ,nombre_evento: "Ópera Carmen - Bizet ", descripcion: "Carmen es una cigarrera que trabaja en ...", precio: 15},
         { name: "event2", coordinates: [40.418038638327005, -3.7091813684492365],imagen_url:"https://upload.wikimedia.org/wikipedia/commons/d/d9/Madrid_-_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa_%28MNCARS%29_03.JPG" ,nombre_evento: "Concierto de rock", descripcion: "nsnlije fñmvevmmperpo k fñegergerpkñge kñeeg,e,", precio: 10 },
-        { name: "event10", coordinates: [41.40331560843518, 2.1743293697393735],imagen_url:"https://upload.wikimedia.org/wikipedia/commons/d/d9/Madrid_-_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa_%28MNCARS%29_03.JPG" ,nombre_evento: "Concierto de jotas", descripcion: "nsnlije fñmvevmmperpo k fñegergerpkñge kñeeg,e,", precio: 25 },
+        { name: "event10", coordinates: [41.40331560843518, 2.1743293697393735],imagen_url:"https://upload.wikimedia.org/wikipedia/commons/d/d9/Madrid_-_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa_%28MNCARS%29_03.JPG" ,nombre_evento: "Teatro clásico", descripcion: "nsnlije fñmvevmmperpo k fñegergerpkñge kñeeg,e,", precio: 25 },
         { name: "event11", coordinates: [41.40334944364515, 2.178271913467759],imagen_url:"https://upload.wikimedia.org/wikipedia/commons/d/d9/Madrid_-_Museo_Nacional_Centro_de_Arte_Reina_Sof%C3%ADa_%28MNCARS%29_03.JPG" ,nombre_evento: "Concierto de folclore", descripcion: "nsnlije fñmvevmmperpo k fñegergerpkñge kñeeg,e,", precio: 20 }
     ]
 
@@ -43,6 +45,7 @@ const MapaAmpliado = () => {
 
     return (
         <div className="mapa">
+            <SearchBar />
             <MapLeaflet data={datos}   changeEvent = {eventSelect}/>
             
            {renderMapOffer()}

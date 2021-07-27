@@ -3,6 +3,7 @@ import L from "leaflet";
 import "./Map.css";
 import '../../App.css';
 
+
 function Map() {
   useEffect(() => {
     // create map
@@ -13,14 +14,14 @@ function Map() {
       zoom: 15,
       layers: [
         L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-          attribution:
+          attribution: 
             '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         })
       ]
     });
   }, []);
 
-  return <div id="map" style={{ height: "30vh" }} />;
+  return <div id="map" style={{ height: "25vh" }} />;
 }
 
 export default Map;
