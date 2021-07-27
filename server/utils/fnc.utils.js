@@ -4,6 +4,7 @@ let bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
 const fncUtils = {
+  
   cryptoW: (word) => {
     return bcrypt.hashSync(word, salt);
   },
