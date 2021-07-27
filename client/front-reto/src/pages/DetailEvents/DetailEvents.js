@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import MapLeaft from '../../components/MapLeaflet/Mapview'
 import axios from 'axios';
 import './DetailEvents.css'
+import BackToTopButton from '../../components/BackTop/BackToTopButton';
 
 const DetailEvents = () =>{
 
@@ -36,6 +37,7 @@ const DetailEvents = () =>{
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         const exectAll = async () => {
             let result = await evetDetailAxios()
             setAEvent(result)
@@ -46,7 +48,9 @@ const DetailEvents = () =>{
 
     
     return(
+        
         <div>
+             <BackToTopButton />
             {detailE!=''?(
                 <div className="containerDetail">
                     <div className="contImage">

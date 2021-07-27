@@ -26,6 +26,7 @@ function Inicio() {
 
   useEffect(()=>{
     destAxios()
+    
   },[])
 
   return (

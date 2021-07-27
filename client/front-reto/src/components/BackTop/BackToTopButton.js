@@ -6,15 +6,15 @@ const ButtonContainer = styled.span`
   bottom: 32px;
   right: 32px;
   align-items: center;
-  height: 32px;
-  width: 32px;
+  height: 60px;
+  width: 60px;
   justify-content: center;
   z-index: 1000;
   cursor: pointer;
   animation: fadeIn 0.3s;
-  opacity: 0.8;
+  opacity: 0.7;
   background: #FF4500;
-  border-radius: 4px;
+  border-radius: 50%;
   transition: opacity 0.4s, color ease-in-out 0.2s, background ease-in-out 0.2s;
   display: ${({ isScrollButtonVisible }) =>
     isScrollButtonVisible ? 'flex' : 'none'};

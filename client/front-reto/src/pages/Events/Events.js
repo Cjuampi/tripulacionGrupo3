@@ -3,6 +3,7 @@ import axios from 'axios'
 import Buscador from '../../components/Search/Search'
 import ListOffer from '../../components/OffersList/OffersList'
 import { valuesContext } from '../../contexts/contextValue'
+import BackToTopButton from '../../components/BackTop/BackToTopButton';
 
 const Eventos = () => {
 
@@ -31,6 +32,7 @@ const Eventos = () => {
 
 
     useEffect(()=>{
+        window.scrollTo(0, 0)
         if(findWord){
             const exeSearchAll = async() => {
                 let resutl = await getAllEvntWord()
@@ -43,6 +45,7 @@ const Eventos = () => {
     return(
         <div>
             <Buscador />
+            <BackToTopButton />
             {renderResult()}
         </div>
     );

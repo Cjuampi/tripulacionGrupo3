@@ -5,6 +5,7 @@ import { useCookies } from 'react-cookie';
 import uCookies from 'universal-cookie';
 import './Login.css';
 
+
 const Login = ({ className, ...props }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -65,8 +66,6 @@ const Login = ({ className, ...props }) => {
           </div>
           
           </div>
-          
-
           
         </form>
       </div>
