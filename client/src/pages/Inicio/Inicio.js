@@ -14,7 +14,7 @@ function Inicio() {
   const [dEventos, setDEventos] = useState([]);
   
   const destAxios = async () => {
-    let result = await axios.post('http://localhost:5000/fndDestEvent')
+    let result = await axios.post('/fndDestEvent')
     setDEventos(result.data)
     renderDEvents()
   }
