@@ -10,33 +10,41 @@ import MapOffer from '../MapOffer/MapOffer.css';
 
 const useStyles = makeStyles({
     root: {
-        display:'flex',
-        alignContent:'baseline',
+        position:"absolute",
         width: '375px',
-        height: '180px',
+        height: '125px',
         boxShadow: '2px 2px 5px grey',
         background: '#1F3A93',
         fontSize: '16px',
-        borderRadius: '8px',
         color: 'black',
         marginBottom: '16px',
-        marginTop:'10px'
+        
+        
     },
     media: {
+        position:"absolute",
         height: '125px',
-        width: '110px'
+        width: '110px',
+        left:"0px",
+        top:"0px"
     },
     des: {
-        display:'flex',
-        flexDirection:'column',
-        width:'250px',
+        position:"static",
+        width:'200px',
         color: '#f8f8f8',
         padding: '16px',
         fontSize: '16px',
+        left:"100px",
+        top:"57px",
+        marginLeft:"120px"
 
     },
     des2: {
         fontSize: '16px',
+        position:"static",
+        width:'200px',
+        left:"100px",
+        top:"57px"
     },
 });
 
