@@ -6,7 +6,7 @@ import slogan from "../../assets/slogan.png";
 import mision from "../../assets/mision.png";
 import vision from "../../assets/vision.png";
 import smile from "../../assets/smile.png";
-
+import BackToTopButton from '../../components/BackTop/BackToTopButton';
 import "../Inicio/Inicio.css";
 import axios from "axios";
 
@@ -36,9 +36,12 @@ function Inicio() {
       </div>
 
       <SearchBar />
+      <BackToTopButton />
+
       <h2 className="destacados">Eventos destacados</h2>
       {/* <OfferList datos={datos} /> */}
       {renderDEvents()}
+      
       <h2 className="destacados">Nuestros valores</h2>
       <div className="mision">
         <img className="star" src={mision} alt="mision" />

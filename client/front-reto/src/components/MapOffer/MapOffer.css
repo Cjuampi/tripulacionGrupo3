@@ -1,4 +1,5 @@
 .MuiCardActionArea-root{
-    width: 80%;
-    display: inherit;
+    width: 100%;
+    display: flex;
+     
 }
