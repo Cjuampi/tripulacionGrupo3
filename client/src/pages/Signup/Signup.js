@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
-import uCookies from 'universal-cookie';
-import './Signup.css';
 import { useHistory } from 'react-router-dom';
+import { valuesContext } from '../../contexts/contextValue'
+import './Signup.css';
 
 const UserSignup = () => {
   const [userName, setUserName] = useState('');
@@ -11,41 +11,30 @@ const UserSignup = () => {
   const [userPassword, setPassword] = useState('');
   const [userRePassword, setRePassword] = useState('');
   const [cookies, setCookie] = useCookies();
-  const objCookies = new uCookies()
+  const { userNameDfun, setUserNameDfun, userEmailDfun, setUserEmailDfun } = useContext(valuesContext)
+  
   let history = useHistory()
 
-
-  const getCookieToken = () =>{
-    let token = objCookies.get('userToken');
-    /* console.log('el token ',token) */
-    return token;
-  }
-
-  const addCookie = (cookieToken) =>{
-    setCookie('userToken', cookieToken, { path: '/' });
+  const addCookie = (nameCookie,cookieToken) =>{
+    setCookie(nameCookie, cookieToken, { path: '/' });
   }
 
   const signupAxios = async () =>{
     try {
       let result = await axios.post('/signUp',{userName:userName,userEmail:userEmail,userPassword:userPassword})
-      console.log(result)
-      if(result.data.type == 'Ok'){
-        addCookie(result.data.token)
+      /* console.log(result) */
+      if(result.data.type ==='Ok'){
+        setUserNameDfun(result.data.username)
+        setUserEmailDfun(result.data.email)
+        addCookie('userToken',result.data.token)
+        addCookie('userName',result.data.username)
+        addCookie('userEmail',result.data.email)
         history.push("/");
       }
     }catch(err){
       console.log('el error',err)
     }
-    
-/*  if(result.data.type == 'Ok'){
-      addCookie(result.data.token)
-      history.push("/");
-    }else{
-      console.log(result.data.message)
-    } */
   }
-
-
 
   const handleSubmit = event => {
     event.preventDefault();

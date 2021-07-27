@@ -15,10 +15,8 @@ const SearchBar = () => {
         event.preventDefault()
         setFindWord(inputWord)
         if (inputWord){
-            console.log('Search findWord (context):',findWord)
+            /* console.log('Search findWord (context):',findWord) */
             history.push("/events");
-        }else{
-            console.log('else click',findWord)
         }
         event.target.reset();
     }

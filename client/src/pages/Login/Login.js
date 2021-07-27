@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import { useHistory,Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import uCookies from 'universal-cookie';
 import './Login.css';
+import { valuesContext } from '../../contexts/contextValue'
 
 
 const Login = ({ className, ...props }) => {
@@ -12,26 +13,27 @@ const Login = ({ className, ...props }) => {
   const [cookies, setCookie] = useCookies();
   const objCookies = new uCookies();
   let history = useHistory();
+  const { userNameDfun, setUserNameDfun, userEmailDfun, setUserEmailDfun } = useContext(valuesContext)
+
+  const addCookie = (nameCookie,cookieToken) =>{
+    setCookie(nameCookie, cookieToken, { path: '/' });
+  }
 
   const loginAxios = async () => {
     try {
       let result = await axios.post('/logIn', { userEmail: email, userPassword: password })
-      if (result.data.token) {
-        addCookie(result.data.token)
+      /* console.log(result) */
+      if (result.data.type == 'Ok') {
+        setUserNameDfun(result.data.username)
+        setUserEmailDfun(result.data.email)
+        addCookie('userToken',result.data.token)
+        addCookie('userName',result.data.username)
+        addCookie('userEmail',result.data.email)
         history.push("/");
       }
     } catch (err) {
       console.log(err)
     }
-  }
-
-  const getCookieToken = () =>{
-    let token = objCookies.get('userToken');
-    return token;
-  }
-
-  const addCookie = (cookieToken) =>{
-    setCookie('userToken', cookieToken, { path: '/' });
   }
 
   const formSubmit = (e) => {
@@ -46,10 +48,6 @@ const Login = ({ className, ...props }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
-/*   useEffect(() => {
-
-  }, []); */
 
   return (
     <div>

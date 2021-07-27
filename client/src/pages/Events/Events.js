@@ -14,7 +14,7 @@ const Eventos = () => {
     
     const getAllEvntWord = async() =>{
         let result = await axios.post('/fndWrdAllEvnt',{wordSearch:findWord})
-        console.log(result)
+        /* console.log(result) */
         return result
     }
 
