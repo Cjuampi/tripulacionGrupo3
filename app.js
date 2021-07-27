@@ -16,9 +16,11 @@ app.use("/public", express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
- app.get('/token',function(req, res){
-    res.cookie('cookie_name' , 'cookie_value').send('Cookie is set');
-}); 
+
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 app.use("/", router);
 app.listen(PORT, ()=>{
     console.log(`EJEMPLO http://localhost:${PORT}`);
