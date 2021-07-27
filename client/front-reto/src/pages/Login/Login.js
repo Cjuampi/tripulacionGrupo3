@@ -26,7 +26,6 @@ const Login = ({ className, ...props }) => {
 
   const getCookieToken = () =>{
     let token = objCookies.get('userToken');
-    /* console.log('el token ',token) */
     return token;
   }
 

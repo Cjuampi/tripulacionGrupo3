@@ -6,6 +6,7 @@ const pagesControl = {
         res.status(200).json('El Home')
     },
     findWrdAllEvnt: async (req, res)=>{
+        
         const word = {
             keyTipoE: req.body.wordSearch,
             keyCiudad: req.body.wordSearch,

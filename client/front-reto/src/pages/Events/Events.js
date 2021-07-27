@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import Buscador from '../../components/Search/Search'
 import ListOffer from '../../components/OffersList/OffersList'
+import { valuesContext } from '../../contexts/contextValue'
 
 const Eventos = () => {
 
-    const [wordSearch, setwordSearch] = useState('');
     const [resultArray, setRestulArray] = useState([]);
+    const { findWord,setFindWord} = useContext(valuesContext)
     
-    const getWord = (word) =>{
-        console.log('la palabra:',word)
-        setwordSearch(word)
-    }
+
     
     const getAllEvntWord = async() =>{
-        let result = await axios.post('http://localhost:5000/fndWrdAllEvnt',{wordSearch})
+        let result = await axios.post('http://localhost:5000/fndWrdAllEvnt',{wordSearch:findWord})
+        console.log(result)
         return result
     }
 
     const renderResult = () =>{
-        if(wordSearch === ''){
+        if(findWord === ''){
             return null
         }else if(resultArray.length > 0){
             return <ListOffer datos={resultArray}/>
@@ -29,19 +28,21 @@ const Eventos = () => {
        
     } 
 
+
+
     useEffect(()=>{
-        if(wordSearch){
+        if(findWord){
             const exeSearchAll = async() => {
                 let resutl = await getAllEvntWord()
                 setRestulArray(resutl.data)
-            }
+            } 
             exeSearchAll()
         }
-    },[wordSearch])
+    },[findWord])
 
     return(
         <div>
-            <Buscador fncWrdSrch = {getWord}/>
+            <Buscador />
             {renderResult()}
         </div>
     );

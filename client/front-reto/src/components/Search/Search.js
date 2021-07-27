@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../Search/Search.css'
+import { valuesContext } from '../../contexts/contextValue'
+import { useHistory} from "react-router-dom";
 
-const SearchBar = (props) => {
-    const [tmpW,setTmpW] = useState('')
-    const [keyWord,setKeyWord] = useState('')
+const SearchBar = () => {
+
+    const { findWord,setFindWord} = useContext(valuesContext)
+    let history = useHistory();
     
-
     const getSearchValue = (event) =>{
-        setKeyWord(event.target.value)
+        setFindWord(event.target.value)
     }
 
    const clickSendValue = (event) => {
         event.preventDefault()
-        props. fncWrdSrch(keyWord)
+        if (findWord){
+            console.log('Search findWord (context):',findWord)
+            history.push("/events");
+        }
         event.target.reset();
     }
 
-    console.log('theprops,', props)
     return(
         <div className="finder">
         <div className="topnav">

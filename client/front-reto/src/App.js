@@ -13,11 +13,14 @@ import { valuesContext } from './contexts/contextValue'
 function App() {
 
   const [detailE, setDetailE ] = useState('')
+  const [findWord, setFindWord] = useState('')
   
   const cntxtValues = {
     token: utils.getCookieToken(),
     detailE,
-    setDetailE
+    setDetailE,
+    findWord,
+    setFindWord
   }
 
   return (

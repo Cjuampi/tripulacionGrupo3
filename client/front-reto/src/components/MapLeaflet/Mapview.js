@@ -11,7 +11,7 @@ const MapView = (props) =>{
     console.log("Propss",props.data)
     const [stateC, setStateC] = useState([props.data[0].coordinates[0],props.data[0].coordinates[1]]);
     /* const [stateC, setStateC] = useState([40.4167278,-3.7033387]); */
-    const [stateZ, setStateZ] = useState(8)
+    const [stateZ, setStateZ] = useState(4)
 
     function ChangeView({ center, zoom }) {
         /* console.log(center,zoom) */
@@ -49,7 +49,7 @@ const MapView = (props) =>{
             //setStateC({'lat':props.data[0].coordinates[0], 'lng': props.data[0].coordinates[1]}) 
             setStateC(props.data[0].coordinates)
             //setStateC(props.data.coordinates)
-            setStateZ(13)
+            setStateZ(16)
             console.log('estado C', stateC)
         
         }
