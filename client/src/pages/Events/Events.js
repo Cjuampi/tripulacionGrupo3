@@ -13,7 +13,7 @@ const Eventos = () => {
 
     
     const getAllEvntWord = async() =>{
-        let result = await axios.post('http://localhost:5000/fndWrdAllEvnt',{wordSearch:findWord})
+        let result = await axios.post('/fndWrdAllEvnt',{wordSearch:findWord})
         console.log(result)
         return result
     }
@@ -24,7 +24,7 @@ const Eventos = () => {
         }else if(resultArray.length > 0){
             return <ListOffer datos={resultArray}/>
         }else {
-            return <p>Resultados no econtrados</p>
+            return <p>Resultados no encontrados</p>
         }
        
     } 

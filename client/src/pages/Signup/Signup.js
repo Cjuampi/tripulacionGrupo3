@@ -27,7 +27,7 @@ const UserSignup = () => {
 
   const signupAxios = async () =>{
     try {
-      let result = await axios.post('http://localhost:5000/signUp',{userName:userName,userEmail:userEmail,userPassword:userPassword})
+      let result = await axios.post('/signUp',{userName:userName,userEmail:userEmail,userPassword:userPassword})
       console.log(result)
       if(result.data.type == 'Ok'){
         addCookie(result.data.token)

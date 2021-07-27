@@ -4,19 +4,21 @@ import { valuesContext } from '../../contexts/contextValue'
 import { useHistory} from "react-router-dom";
 
 const SearchBar = () => {
-
-    const { findWord,setFindWord} = useContext(valuesContext)
+    const { findWord,setFindWord , inputWord, setinputWord} = useContext(valuesContext)
     let history = useHistory();
     
     const getSearchValue = (event) =>{
-        setFindWord(event.target.value)
+        setinputWord(event.target.value)
     }
 
    const clickSendValue = (event) => {
         event.preventDefault()
-        if (findWord){
+        setFindWord(inputWord)
+        if (inputWord){
             console.log('Search findWord (context):',findWord)
             history.push("/events");
+        }else{
+            console.log('else click',findWord)
         }
         event.target.reset();
     }

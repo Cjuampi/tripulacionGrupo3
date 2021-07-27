@@ -16,7 +16,7 @@ const DetailEvents = () =>{
     console.log('estoy aqu', detailE)
 
     const evetDetailAxios = async() =>{
-        let result = await axios.post('http://localhost:5000/fndDetailEvent',{id_evento:detailE})
+        let result = await axios.post('/fndDetailEvent',{id_evento:detailE})
         /* console.log(result.data) */
         return result.data[0]
     }

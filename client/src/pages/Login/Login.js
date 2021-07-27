@@ -15,7 +15,7 @@ const Login = ({ className, ...props }) => {
 
   const loginAxios = async () => {
     try {
-      let result = await axios.post('http://localhost:5000/logIn', { userEmail: email, userPassword: password })
+      let result = await axios.post('/logIn', { userEmail: email, userPassword: password })
       if (result.data.token) {
         addCookie(result.data.token)
         history.push("/");

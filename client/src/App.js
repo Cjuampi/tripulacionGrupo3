@@ -14,13 +14,16 @@ function App() {
 
   const [detailE, setDetailE ] = useState('')
   const [findWord, setFindWord] = useState('')
+  const [inputWord, setinputWord] = useState('')
   
   const cntxtValues = {
     token: utils.getCookieToken(),
     detailE,
     setDetailE,
     findWord,
-    setFindWord
+    setFindWord,
+    inputWord,
+    setinputWord
   }
 
   useEffect(()=>{
