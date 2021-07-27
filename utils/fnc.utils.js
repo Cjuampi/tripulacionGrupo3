@@ -10,11 +10,12 @@ const fncUtils = {
     return bcrypt.hashSync(word, salt);
   },
   decoToken: (token) => {
+    /* console.log('el token',token) */
     const payload = jwt.decode(token, process.env.SECRET)
-    return payload.admin
+    return payload
   },
-  generateToken: (email) => {
-    let tkn = jwt.sign({ email: email }, process.env.SECRET, {
+  generateToken: (email,username) => {
+    let tkn = jwt.sign({ email, username}, process.env.SECRET, {
       expiresIn: "10h",
     });
     return tkn;

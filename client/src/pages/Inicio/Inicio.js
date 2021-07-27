@@ -12,7 +12,7 @@ import axios from "axios";
 
 function Inicio() {
   const [dEventos, setDEventos] = useState([]);
-  
+
   const destAxios = async () => {
     let result = await axios.post('/fndDestEvent')
     setDEventos(result.data)

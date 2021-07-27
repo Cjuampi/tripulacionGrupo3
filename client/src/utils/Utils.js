@@ -1,10 +1,15 @@
 import uCookies from 'universal-cookie';
 
 const globalUtils = {
-    getCookieToken : () =>{
+    getCookieToken : (nameCookie) =>{
         const objCookies = new uCookies();
-        let token = objCookies.get('userToken');
-        return token;
+        let token = objCookies.get(nameCookie);
+        if (token){
+          return token;
+        }else{
+          return '';
+        }
+        
       }
     
 }

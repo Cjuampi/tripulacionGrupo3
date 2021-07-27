@@ -12,8 +12,10 @@ function LogOut() {
 
   function handleLogOut() {
     cookies.remove('userToken')
-    console.log("cookie borrada")
-    window.location = "/login";
+    cookies.remove('userEmail')
+    cookies.remove('userName')
+    /* console.log("cookie borrada") */
+    window.location = "/";
   }
 
   return (

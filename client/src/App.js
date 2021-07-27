@@ -12,18 +12,26 @@ import { valuesContext } from './contexts/contextValue'
 
 function App() {
 
-  const [detailE, setDetailE ] = useState('')
+  const [detailE, setDetailE] = useState('')
   const [findWord, setFindWord] = useState('')
   const [inputWord, setinputWord] = useState('')
-  
+  const [token, setToken] = useState(utils.getCookieToken('userToken'))
+  const [userNameDfun, setUserNameDfun] = useState(utils.getCookieToken('userName'))
+  const [userEmailDfun, setUserEmailDfun] = useState(utils.getCookieToken('userEmail'))
+
   const cntxtValues = {
-    token: utils.getCookieToken(),
+    token,
+    setToken,
     detailE,
     setDetailE,
     findWord,
     setFindWord,
     inputWord,
-    setinputWord
+    setinputWord,
+    userNameDfun,
+    setUserNameDfun,
+    userEmailDfun,
+    setUserEmailDfun
   }
 
   useEffect(()=>{

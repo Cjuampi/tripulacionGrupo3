@@ -24,9 +24,9 @@ const userMySQL = {
             conn = await pool.getConnection();
             let sqlQuery = ("select email from usuarios where email=?")
             result = await conn.query(sqlQuery,email);
-            console.log('resultUserExiste',result);
+            /* console.log('resultUserExiste',result); */
             result = result[0]
-            console.log('array0',result);
+            /* console.log('array0',result); */
         } catch (err) {
             result = {codeError: err.code, numError: err.errno}
             console.log(result)
