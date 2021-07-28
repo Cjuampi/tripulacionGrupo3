@@ -13,7 +13,7 @@ const globalUtils = {
   checkEmail: (email) => {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
   },
-  checkLengthPass: (pass) => {
+  checkPass: (pass) => {
     return (/^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[#?!@$%^&*\-_]).{8,}$/.test(pass))
   },
   matchPass: (pass1, pass2) => {

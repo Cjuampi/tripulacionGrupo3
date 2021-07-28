@@ -15,7 +15,8 @@ const UserSignup = () => {
   const [mssgEmail,setMssgEmail] = useState('')
   const [mssgPass, setMssgPass] =useState('')
   const { userNameDfun, setUserNameDfun, userEmailDfun, setUserEmailDfun } = useContext(valuesContext)
-  const [checkEmail, setCheckMail, checkPassLng, setCheckPassLng, checkPassMcht, setCheckPassMatch ] = useState(false)
+  const [checkEmail, setCheckMail] = useState(false)
+  const [checkPass, setCheckPass] = useState(false)
   
   let history = useHistory()
 
@@ -42,12 +43,18 @@ const UserSignup = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    if(utilsReact.checkEmail(userEmail)&&utilsReact.checkLengthPass(userPassword)&&utilsReact.checkLengthPass(userRePassword) && utilsReact.matchPass(userPassword,userRePassword) && utilsReact.maxLengthEmail(userEmail)){
+    if(utilsReact.checkEmail(userEmail)&&utilsReact.checkPass(userPassword)&&utilsReact.checkPass(userRePassword) && utilsReact.matchPass(userPassword,userRePassword) && utilsReact.maxLengthEmail(userEmail)){
       signupAxios()
+    }else if(!utilsReact.checkPass(userPassword)){
+      setCheckPass(true);setMssgPass('La contraseña debe tener como mínimo una mayúscula, un número, un carácter especial y una logitud de 8 caracteres')
+    }else if(!utilsReact.matchPass(userPassword,userRePassword)){
+      setCheckPass(true);setMssgPass('Las contraseñas no coinciden')
+    }else if(!utilsReact.maxLengthEmail(userEmail)){
+      setEmail(true); setMssgEmail('El email tiene que ser menor a 46 caracteres') 
+    }else if(!utilsReact.checkEmail(userEmail)){
+      setEmail(true);setMssgEmail('Email no válido, introduca un email válido')
     }
-      
-
-  };
+  }
 
   const handleNameChange = (e) =>{
     setUserName(e.target.value)
