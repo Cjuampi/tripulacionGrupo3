@@ -49,7 +49,7 @@ const Login = ({ className, ...props }) => {
       setCheckMail(false)
       loginAxios()
     }else{
-      console.log('es true el mail')
+      /* console.log('es true el mail') */
       setCheckMail(true)
     }
   };

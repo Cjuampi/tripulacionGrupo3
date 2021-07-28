@@ -37,9 +37,9 @@ const MapaAmpliado = () => {
 
 
     useEffect(() => {
-        console.log('***Entro al useEffect***')
+        /* console.log('***Entro al useEffect***') */
         if(evento){
-            console.log('se actualiza el evento')//llamar a una función que dibuje las cajas azules
+            /* console.log('se actualiza el evento') *///llamar a una función que dibuje las cajas azules
         }
     }, [evento])
 

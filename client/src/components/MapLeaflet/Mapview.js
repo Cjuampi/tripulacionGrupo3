@@ -41,7 +41,7 @@ const MapView = (props) =>{
         )
     }
 
-    useEffect(()=>{console.log('render')})
+    /* useEffect(()=>{console.log('render')}) */
 
     useEffect(()=>{
         if(props.data.length !== 0){
@@ -50,7 +50,7 @@ const MapView = (props) =>{
             setStateC(props.data[0].coordinates)
             //setStateC(props.data.coordinates)
             setStateZ(16)
-            console.log('estado C', stateC)
+            /* console.log('estado C', stateC) */
         
         }
     },[props.data])
