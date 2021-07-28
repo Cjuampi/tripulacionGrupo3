@@ -45,7 +45,7 @@ const useStyles = makeStyles({
 });
 
 const MediaCard = (props) => {
-    console.log('offerProps', props)
+    /* console.log('offerProps', props) */
     const { setDetailE } = useContext(valuesContext);
 
     const classes = useStyles();

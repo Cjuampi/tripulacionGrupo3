@@ -16,7 +16,7 @@ const MapaAmpliado = () => {
     const [evento, setEvento] = useState(null)
  
     const eventSelect = (pos) => {
-        console.log('click id_evento',pos)
+       /*  console.log('click id_evento',pos) */
         setEvento(pos)
         /* setEvento(nombre) */
         /* return null */
@@ -48,7 +48,7 @@ const MapaAmpliado = () => {
     }
 
     const rendBoxMap =()=>{
-        console.log('datos',crdsDatos)
+        /* console.log('datos',crdsDatos) */
         /* console.log('datosCRDS', crdsDatos[evento].imagen_url)  */
         return <MapOffer data={{imagen_url: crdsDatos[evento].imagen_url, nombre_evento:crdsDatos[evento].nombre_evento, descripcion:crdsDatos[evento].descripcion, precio:crdsDatos[evento].precio, id_evento:crdsDatos[evento].id_evento}}/>
     }
