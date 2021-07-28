@@ -5,6 +5,7 @@ import MapLeaft from '../../components/MapLeaflet/Mapview'
 import axios from 'axios';
 import './DetailEvents.css'
 import BackToTopButton from '../../components/BackTop/BackToTopButton';
+import CommentHeader from '../../components/AddCommentHeader/AddCommentHeader'
 
 const DetailEvents = () =>{
 
@@ -81,6 +82,9 @@ const DetailEvents = () =>{
                     <div className="mapaEvent">
                         <p>¿Como llegar?</p>
                         {renderMap()}
+                    </div>
+                    <div>
+                    <CommentHeader/>
                     </div>
                 </div>
             )

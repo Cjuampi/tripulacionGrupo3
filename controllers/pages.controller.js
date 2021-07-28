@@ -46,6 +46,24 @@ const pagesControl = {
             console.log(err)
             data = [{ codeError:"Error en consultar los datos", numError: -999 }]
         }
+    },
+    setComments: async(req,res) => {
+        const date = new Date(Date.now())
+        const obj= {
+            id_user: req.body.id_user,
+            id_evento: req.body.id_evento,
+            comentario: req.body.comentario,
+            fecha: date.toISOString()
+        }
+        const dataComment = Object.values(obj)
+        try{
+            let data = await pageModel.insertComment(dataComment)
+            res.status(200).json(data)
+        }catch(err){
+            console.log(err)
+            data = [{ codeError:"Error en consultar los datos", numError: -999 }]
+
+        }
     }
 
 }
