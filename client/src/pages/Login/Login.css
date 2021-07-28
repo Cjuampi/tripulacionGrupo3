@@ -5,6 +5,10 @@
     padding: 10px 15px;
 }
 
+.textErrorLogin{
+    color: red;
+}
+
 .login-section-submit{
     background: #ef4538;
     color: #fff;

@@ -3,15 +3,19 @@ import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 import { valuesContext } from '../../contexts/contextValue'
+import utilsReact from '../../utils/Utils'
 import './Signup.css';
 
 const UserSignup = () => {
-  const [userName, setUserName] = useState('');
+  const [cookies, setCookie] = useCookies();
   const [userEmail, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [userPassword, setPassword] = useState('');
   const [userRePassword, setRePassword] = useState('');
-  const [cookies, setCookie] = useCookies();
+  const [mssgEmail,setMssgEmail] = useState('')
+  const [mssgPass, setMssgPass] =useState('')
   const { userNameDfun, setUserNameDfun, userEmailDfun, setUserEmailDfun } = useContext(valuesContext)
+  const [checkEmail, setCheckMail, checkPassLng, setCheckPassLng, checkPassMcht, setCheckPassMatch ] = useState(false)
   
   let history = useHistory()
 
@@ -38,8 +42,10 @@ const UserSignup = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    
+    if(utilsReact.checkEmail(userEmail)&&utilsReact.checkLengthPass(userPassword)&&utilsReact.checkLengthPass(userRePassword) && utilsReact.matchPass(userPassword,userRePassword) && utilsReact.maxLengthEmail(userEmail)){
       signupAxios()
+    }
+      
 
   };
 
