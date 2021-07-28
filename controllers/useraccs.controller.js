@@ -59,7 +59,7 @@ const userAccs = {
                                                 /* res.cookie('token', newToken) */
                                                 /* console.log(res) */
                                                 /* res.send('aaaa') */
-                                                res.status(200).json({ type: 'Ok', message: 'Credenciales correctas', token: newToken, token: user.token, username:fncUtils.decoToken(newToken).username, email:fncUtils.decoToken(newToken).email})
+                                                res.status(200).json({ type: 'Ok', message: 'Credenciales correctas', token: newToken, username:fncUtils.decoToken(newToken).username, email:fncUtils.decoToken(newToken).email})
                                             }
                                         }
                                     } catch (err) {
