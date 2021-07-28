@@ -21,8 +21,13 @@ const globalUtils = {
   },
   maxLengthEmail:(email)=>{
     return (email.length < 46 )
+  },
+  maxLengthName : (username) =>{
+    return (username.length < 20)
+  },
+  checkUser: (username) =>{
+    return (/^[a-zA-Z ]+$/.test(username))
   }
-
 }
 
 export default globalUtils;

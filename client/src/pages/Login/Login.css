@@ -7,6 +7,10 @@
 
 .textErrorLogin{
     color: red;
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    text-align: left;
 }
 
 .login-section-submit{
@@ -32,21 +36,21 @@
 
 .input_email{
     width:328px;
-    height:48px;
+    height:40px;
     border-radius: 8px;
     font-size: 14px;
     color:#52555F;
-    padding-left:10px;
+    padding:0px 5px;
     border: 2px solid #2A2A2A;
 }
 
 .input_password{
     width:328px;
-    height:48px;
+    height:40px;
     border-radius: 8px;
     font-size: 14px;
     color:#52555F;
-    padding-left:10px;
+    padding: 0px 5px;
     border: 2px solid #2A2A2A;
     margin-top: 20px;
 }

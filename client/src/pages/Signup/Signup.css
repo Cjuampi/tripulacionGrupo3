@@ -21,7 +21,9 @@
 .inputFormLS{
   width: 30vw;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0px 5px;
+
+
   margin-bottom: 20px;
 }
 
@@ -33,11 +35,19 @@
 #userName, #Email, #password,
 #passwordConfirmation{
   width: 328px;
-  height: 48px;
+  height: 40px;
   border: 2px solid #2A2A2A;
   border-radius: 8px;
 }
 
 .registro{
   color:#FF4500;
+}
+
+.textErrorLogin{
+  color:#E70000;
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px;
+  text-align: left;
 }

@@ -13,6 +13,8 @@ const Login = ({ className, ...props }) => {
   const [password, setPassword] = useState('');
   const [cookies, setCookie] = useCookies();
   const [checkMail, setCheckMail] = useState(false);
+  const [checkAcc, setCheckAcc] = useState(false)
+  const [mssgAcc, setMssgAcc] = useState('')
   const objCookies = new uCookies();
   let history = useHistory();
   const { userNameDfun, setUserNameDfun, userEmailDfun, setUserEmailDfun } = useContext(valuesContext)
@@ -32,6 +34,9 @@ const Login = ({ className, ...props }) => {
         addCookie('userName',result.data.username)
         addCookie('userEmail',result.data.email)
         history.push("/");
+      }else{
+        setCheckAcc(true)
+        setMssgAcc('Usuario y/o contraseña incorrecta')
       }
     } catch (err) {
       console.log(err)
@@ -63,6 +68,7 @@ const Login = ({ className, ...props }) => {
       <div className="login-section">
         <h1 className="iniciar">Iniciar sesión</h1>
         <form onSubmit={formSubmit}>
+          {checkAcc?<p className="textErrorLogin">{mssgAcc}</p>:<></>}
           {checkMail?<p className="textErrorLogin">Email invalido</p>:<></>}
           <input className="input_email" type="email" name="email" placeholder="Correo" required onChange={handleEmailChange} />
           <input className="input_password" type="password" name="password" placeholder="Contraseña" required onChange={handlePasswordChange} />

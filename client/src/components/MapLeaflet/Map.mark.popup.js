@@ -6,11 +6,11 @@ const MarkerPopup = (props) => {
 /*   const abc = () =>{
     console.log('click')
   } */
-  console.log('los props:',props)
+  /* console.log('los props:',props) */
   return (
     <div /* onClick={props.functionC(props.name)} */>
       <Popup >
-        <div>Evento: {props.name} <a href="#"> abrir</a></div>
+        <div>Evento: {props.name}</div>
       </Popup>
     </div>
   );

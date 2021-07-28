@@ -7,13 +7,10 @@ import './DetailEvents.css'
 import BackToTopButton from '../../components/BackTop/BackToTopButton';
 
 const DetailEvents = () =>{
-
-    
     const { detailE } = useContext(valuesContext);
     const [sAEvent, setAEvent] = useState([])
     const history = useHistory()
 
-    console.log('estoy aqu', detailE)
 
     const evetDetailAxios = async() =>{
         let result = await axios.post('/fndDetailEvent',{id_evento:detailE})
@@ -29,7 +26,7 @@ const DetailEvents = () =>{
 
     const renderMap = () =>{
         if(sAEvent.lat){
-            return <MapLeaft  changeEvent = {eventSelect} data ={[{ name : sAEvent.nombre_evento ,coordinates:[`${sAEvent.lat}`,`${sAEvent.lon}`]}] }/>
+            return <MapLeaft  changeEvent = {eventSelect} data ={[{ name : sAEvent.nombre_evento ,coordinates:[`${sAEvent.lat}`,`${sAEvent.lon}`] ,address:sAEvent.direccion}] }/>
         }else{
             return null
         }
