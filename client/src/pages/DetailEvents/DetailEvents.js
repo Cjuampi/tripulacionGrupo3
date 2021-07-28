@@ -26,7 +26,7 @@ const DetailEvents = () =>{
 
     const renderMap = () =>{
         if(sAEvent.lat){
-            return <MapLeaft  changeEvent = {eventSelect} data ={[{ name : sAEvent.nombre_evento ,coordinates:[`${sAEvent.lat}`,`${sAEvent.lon}`] ,address:sAEvent.direccion}] }/>
+            return <MapLeaft  changeEvent = {eventSelect} data ={[{ name : sAEvent.nombre_evento ,coordinates:[`${sAEvent.lat}`,`${sAEvent.lon}`]}]}  zoom={14} />
         }else{
             return null
         }

@@ -29,14 +29,12 @@ const Eventos = () => {
        
     } 
 
-
-
     useEffect(()=>{
         window.scrollTo(0, 0)
         if(findWord){
             const exeSearchAll = async() => {
-                let resutl = await getAllEvntWord()
-                setRestulArray(resutl.data)
+                let result = await getAllEvntWord()
+                setRestulArray(result.data)
             } 
             exeSearchAll()
         }

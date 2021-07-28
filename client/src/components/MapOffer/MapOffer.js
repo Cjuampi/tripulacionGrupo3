@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import MapOffer from '../MapOffer/MapOffer.css';
+import { valuesContext } from '../../contexts/contextValue'
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -18,8 +20,6 @@ const useStyles = makeStyles({
         fontSize: '16px',
         color: 'black',
         marginBottom: '16px',
-        
-        
     },
     media: {
         position:"absolute",
@@ -32,32 +32,32 @@ const useStyles = makeStyles({
         position:"static",
         width:'200px',
         color: '#f8f8f8',
-        padding: '16px',
         fontSize: '16px',
         left:"100px",
         top:"57px",
         marginLeft:"120px"
 
     },
-    des2: {
+    title: {
         fontSize: '16px',
-        position:"static",
-        width:'200px',
-        left:"100px",
-        top:"57px"
+        fontWeight:"fontWeightBold",
     },
 });
 
 const MediaCard = (props) => {
+    console.log('offerProps', props)
+    const { setDetailE } = useContext(valuesContext);
+
     const classes = useStyles();
-    let { imagen_url, nombre_evento, descripcion, precio } = props.data;
-    let strBox='';
-    if(descripcion){
-        let str = descripcion
-        strBox = str.substring(0, 50);
+    let { imagen_url, nombre_evento, descripcion, precio, id_evento } = props.data;
+    let history = useHistory()
+    const openDetailEvent = () =>{
+        setDetailE(props.data.id_evento)
+        history.push("/detailE");
     }
+
     return (
-        <Card className={classes.root} id={props.cardId}>
+        <Card className={classes.root} onClick={openDetailEvent}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
@@ -65,12 +65,12 @@ const MediaCard = (props) => {
                     title="Imagen evento"
                 />
                 <CardContent className={classes.des}>
-                    <Typography variant="h6" >
+                    <Typography style={{ fontWeight: 600 }} >
                         {nombre_evento}
                     </Typography>
-                    <Typography className={classes.des2} >
-                        {strBox} (leer más)
-                    </Typography>
+{/*                     <Typography className={classes.des2} >
+                        {strBox}...
+                    </Typography> */}
                     <Typography >
                         {precio}
                     </Typography>

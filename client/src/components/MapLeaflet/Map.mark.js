@@ -10,9 +10,8 @@ const MapMarkers = (props) => {
     <Marker key={i} position={element.coordinates} icon={MarkerIcon} eventHandlers={{
       click: (e) => {
         const changeEvent = (nombre) => {
-          props.changeEvent(nombre)
-          props.changeCenter({ center: element.coordinates, zoom: 8 });
-
+          props.changeEvent(i)
+          props.changeCenter({ center: element.coordinates, zoom: 14 });
         }
         changeEvent(element.i)
       },

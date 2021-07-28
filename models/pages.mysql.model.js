@@ -6,7 +6,7 @@ const pageMySQL = {
         let result;
         try {
             conn = await pool.getConnection();
-            let sqlQuery = ("SELECT id_evento, nombre_evento, descripcion,fecha_inicio, fecha_fin, precio, imagen_url from evento where tipo_evento regexp ? OR ciudad regexp ? or nombre_evento regexp ? or precio regexp ? or descripcion regexp ?")
+            let sqlQuery = ("SELECT id_evento, nombre_evento, descripcion,fecha_inicio, fecha_fin, precio, imagen_url, lat, lon from evento where tipo_evento regexp ? OR ciudad regexp ? or nombre_evento regexp ? or precio regexp ? or descripcion regexp ?")
             result = await conn.query(sqlQuery, data);
             /* console.log('result',result[0]); */
         } catch (err) {

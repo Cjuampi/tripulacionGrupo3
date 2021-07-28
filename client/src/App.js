@@ -15,9 +15,11 @@ function App() {
   const [detailE, setDetailE] = useState('')
   const [findWord, setFindWord] = useState('')
   const [inputWord, setinputWord] = useState('')
+  const [inputWordS, setinputWordS] = useState('')
   const [token, setToken] = useState(utils.getCookieToken('userToken'))
   const [userNameDfun, setUserNameDfun] = useState(utils.getCookieToken('userName'))
   const [userEmailDfun, setUserEmailDfun] = useState(utils.getCookieToken('userEmail'))
+  const [wordSrchMap, setWordSrchMap] = useState(utils.getCookieToken('userEmail'))
 
   const cntxtValues = {
     token,
@@ -31,7 +33,11 @@ function App() {
     userNameDfun,
     setUserNameDfun,
     userEmailDfun,
-    setUserEmailDfun
+    setUserEmailDfun,
+    wordSrchMap,
+    setWordSrchMap,
+    inputWordS,
+    setinputWordS,
   }
 
   useEffect(()=>{
