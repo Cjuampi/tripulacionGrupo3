@@ -76,7 +76,7 @@ const DetailEvents = () =>{
                         </ul>
                     </div>
                     <div className="mapaEvent">
-                        <p>¿Como llegar?</p>
+                        <p>Localización</p>
                         {renderMap()}
                     </div>
                 </div>

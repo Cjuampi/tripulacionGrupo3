@@ -11,6 +11,11 @@ const SearchBar = () => {
         setinputWord(event.target.value)
     }
 
+    const searchKey = (event) =>{
+        setFindWord(event.target.value)
+        history.push("/events");
+    }
+
    const clickSendValue = (event) => {
         event.preventDefault()
         setFindWord(inputWord)
@@ -30,9 +35,9 @@ const SearchBar = () => {
             </form>
         </div>
         <div className="finder_buttons">
-            <button className="ocio_button" type="button">Museos</button>
-            <button className="rutas_button" type="button">Naturaleza</button>
-            <button className="madrid_button" type="button">Candlelights</button>
+            <button className="ocio_button" type="button" value="museo" onClick={searchKey}>Museos</button>
+            <button className="rutas_button" type="button" value="naturaleza" onClick={searchKey} >Naturaleza</button>
+            <button className="madrid_button" type="button" value="candlelight" onClick={searchKey}>Candlelights</button>
         </div>
         </div>
     )
