@@ -8,7 +8,7 @@ import './Map.css'
 
 const MapView = (props) =>{
     
-    console.log("Propss",props.data)
+    /* console.log("Propss",props.data) */
     const [stateC, setStateC] = useState([props.data[0].coordinates[0],props.data[0].coordinates[1]]);
     /* const [stateC, setStateC] = useState([40.4167278,-3.7033387]); */
     const [stateZ, setStateZ] = useState(4)
