@@ -36,7 +36,6 @@ const UserSignup = () => {
     }
   }
 
-  
   const handleSubmit = event => {
     event.preventDefault();
     
