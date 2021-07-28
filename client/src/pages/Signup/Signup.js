@@ -48,7 +48,7 @@ const UserSignup = () => {
     if(utilsReact.checkEmail(userEmail)&&utilsReact.checkPass(userPassword)&&utilsReact.checkPass(userRePassword) && utilsReact.matchPass(userPassword,userRePassword) && utilsReact.maxLengthEmail(userEmail)){
       signupAxios()
     }else if(!utilsReact.checkUser(userName)){
-      setCheckName(true);setMssgName('El usuario no tiene que tener caracteres especiales')
+      setCheckName(true);setMssgName('El usuario no tiene que tener caracteres especiales o números')
     }else if(!utilsReact.maxLengthName(userName)){
       setCheckName(true);setMssgName('La longitud de usuario tiene que ser menor a 20')
     }else if(!utilsReact.checkEmail(userEmail)){
