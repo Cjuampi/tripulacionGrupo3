@@ -24,7 +24,7 @@ const Login = ({ className, ...props }) => {
   const loginAxios = async () => {
     try {
       let result = await axios.post('/logIn', { userEmail: email, userPassword: password })
-      console.log(result)
+       /* console.log(result) */ 
       if (result.data.type == 'Ok') {
         setUserNameDfun(result.data.username)
         setUserEmailDfun(result.data.email)

@@ -52,7 +52,7 @@ const UserSignup = () => {
     }else if(!utilsReact.maxLengthEmail(userEmail)){
       setEmail(true); setMssgEmail('El email tiene que ser menor a 46 caracteres') 
     }else if(!utilsReact.checkEmail(userEmail)){
-      setEmail(true);setMssgEmail('Email no válido, introduca un email válido')
+      setEmail(true);setMssgEmail('Email no válido, introduzca un email válido')
     }
   }
 

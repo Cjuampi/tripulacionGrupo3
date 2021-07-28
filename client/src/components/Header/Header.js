@@ -15,7 +15,7 @@ const Header = () => {
                     <Menu />
                 </div>
                 <div className="userNameHeader">
-                  {userNameDfun?<p>{userNameDfun}</p>:<></>}
+                  {userNameDfun?<p>Bienvenid@ {userNameDfun}</p>:<></>}
                 </div>
                 <div className="logo">
                     <img src={logo} alt="logo" />
