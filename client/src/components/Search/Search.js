@@ -30,11 +30,9 @@ const SearchBar = () => {
             </form>
         </div>
         <div className="finder_buttons">
-            <button className="ocio_button" type="button">Ocio</button>
-            <button className="rutas_button" type="button">Rutas verdes</button>
-            <button className="madrid_button" type="button">Madrid</button>
-            <button className="naturaleza_button" type="button">Naturaleza</button>
-            <button className="eventos_button" type="button">Eventos</button>
+            <button className="ocio_button" type="button">Museos</button>
+            <button className="rutas_button" type="button">Naturaleza</button>
+            <button className="madrid_button" type="button">Candlelights</button>
         </div>
         </div>
     )
