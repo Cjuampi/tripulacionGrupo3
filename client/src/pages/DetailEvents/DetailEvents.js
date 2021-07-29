@@ -15,18 +15,21 @@ const DetailEvents = () =>{
     const history = useHistory();
     const [sAcomments,setAcomments] = useState([]);
     const [idUser,setIdUser] = useState([]);
+    const [updateV, setUpdateV] = useState(true)
 
 
     const evetDetailAxios = async() =>{
         let result = await axios.post('/fndDetailEvent',{id_evento:detailE})
-        /* console.log(result.data) */
         return result.data[0]
     }
 
     const eventSelect = (nombre) => {
-        /* console.log('click',nombre) */
         return null
 
+    }
+
+    const reloadComent = () => {
+        setUpdateV(!updateV);
     }
 
     const renderMap = () =>{
@@ -38,41 +41,33 @@ const DetailEvents = () =>{
     }
 
     const getComments = async () =>{
-        
         let result = await axios.post('/fndCommentsEvent',{id_evento:detailE})
-        //console.log(result.data)
         return result.data;  
-
     }
 
     const getIdUser = async () => {
         let userCookie = utilsReact.getCookieToken("userEmail");
-        //console.log('***********************',userCookie)
         let result = await axios.post('/findUser',{id_user:userCookie})
-        //console.log('---------------',result)
         return result.data;
         
     } 
     
 
     const renderComments = () => {
-        if(
+        if (
             sAcomments.length != 0
-        ){
-            //console.log("**********************************",sAcomments)
-            return <CommentsList datos={sAcomments}/>
-        }else{
-            //console.log("datos no encontrados")
-             return null; 
+        ) {
+
+            return <CommentsList datos={sAcomments} />
+        } else {
+            return null;
         }
 
-        
+
 
     }
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
-    //console.log(sAEvent.fecha_inicio)
     const date=new Date(sAEvent.fecha_inicio);
-    //console.log(date)
     const cleanDate = date.toLocaleDateString("es-ES", options);
     
 
@@ -84,11 +79,6 @@ const DetailEvents = () =>{
             getIdUser();
         }
         exectAll()
-    }, []);
-
-
-
-    useEffect(() => {
         const exectAllComments = async () => {
             let result = await getComments()
             setAcomments(result)
@@ -99,13 +89,24 @@ const DetailEvents = () =>{
             setIdUser(result);
         }
         exectUsers()
-    },[]);
+    }, []);
+
+
+    useEffect(() => {
+        console.log(' useeffect  de ideUSER ejecutado ', updateV)
+        const exectAllComments = async () => {
+            let result = await getComments()
+            setAcomments(result)
+        }
+        exectAllComments()
+       
+    },[updateV]);
 
     const renderAddComments = () => {
         if(idUser){
             let index = sAcomments.findIndex((item) => item.id_user === idUser.id_user) 
             if(index == -1){
-                return <CommentHeader id_user={idUser.id_user} id_evento={detailE}/>
+                return <CommentHeader id_user={idUser.id_user} id_evento={detailE} reloadFn={reloadComent}/>
             }else{
                 return <p>No puedes añadir más comentarios en el mismo evento</p>
             }
@@ -114,9 +115,6 @@ const DetailEvents = () =>{
             return <p>Para añadir una reseña debes estar registrado</p>
          }       
     }
-    
-    
-
     
     return(
         

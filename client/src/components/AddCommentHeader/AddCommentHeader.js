@@ -1,11 +1,14 @@
 import axios from 'axios';
-import React, {useState,useEffect} from 'react';
-
+import React, {useState,useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import './AddCommentHeader.css';
+import { valuesContext } from '../../contexts/contextValue'
 
 const CommentHeader =  (props) => {
     const [name,setName] = useState('');
     const [comment,setComment] = useState('');
+    const { detailE, setDetailE } = useContext(valuesContext);
+    const history = useHistory();
     
 
   const onNameChange = (e) => {
@@ -19,8 +22,10 @@ const CommentHeader =  (props) => {
   const addComment = async () => {
       try{
           let result = await axios.post('/comments',{id_user: props.id_user,id_evento: props.id_evento ,comentario:comment})
-          if(result.data.type === 'ok'){
-              console.log("añadido comentario")
+          console.log('-------------',result)
+          if(result.data.affectedRows === 1){
+            props.reloadFn()
+             /* console.log('ok ')*/
       }
     }catch(err){
         console.log('error',err)
@@ -30,7 +35,6 @@ const CommentHeader =  (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     addComment();
-    
   };
 
   
