@@ -1,22 +1,34 @@
 import React from "react";
 import Offer from '../Offer/Offer';
 import '../OffersList/OffersList.css'
+import Carousel from 'react-material-ui-carousel'
 
 
-
- const OfferList = (props) =>{
-   /* console.log('propsOFFER',props) */
-  const renderOffers = () => {
-    return props.datos.map((offer, i) => (
-       <Offer data={offer} key={i} cardId={offer.id_evento}/>
-    ));
+const OfferList = (props) => {
+  const renderOffersCarousel = () => {
+    return (
+      <Carousel>
+        {
+          props.datos.map((offer, i) => (
+            <Offer data={offer} key={i} cardId={offer.id_evento} />
+          ))
+        }
+      </Carousel>
+    );
   }
 
+  const renderOffers = () => {
+    return (
+          props.datos.map((offer, i) => (
+            <Offer data={offer} key={i} cardId={offer.id_evento} />
+          ))
+    );
 
+  }
 
   return (
     <div className="offerList">
-        {renderOffers()}
+      {props.carousel?renderOffersCarousel():renderOffers()}
     </div>
   );
   }

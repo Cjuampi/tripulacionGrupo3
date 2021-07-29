@@ -20,7 +20,7 @@ function Inicio() {
   }
 
   const renderDEvents = ()=>{
-    return  <OfferList datos={dEventos} />  
+    return  <OfferList datos={dEventos} carousel={true}/>  
   }
 
 
