@@ -47,7 +47,7 @@ const DetailEvents = () =>{
 
     const getIdUser = async () => {
         let userCookie = utilsReact.getCookieToken("userEmail");
-        console.log('***********************',userCookie)
+        //console.log('***********************',userCookie)
         let result = await axios.post('/findUser',{id_user:userCookie})
         //console.log('---------------',result)
         return result.data;
@@ -59,10 +59,10 @@ const DetailEvents = () =>{
         if(
             sAcomments.length != 0
         ){
-            console.log("**********************************",sAcomments)
+            //console.log("**********************************",sAcomments)
             return <CommentsList datos={sAcomments}/>
         }else{
-            console.log("datos no encontrados")
+            //console.log("datos no encontrados")
              return null; 
         }
 
