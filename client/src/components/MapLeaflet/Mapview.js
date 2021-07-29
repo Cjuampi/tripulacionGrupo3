@@ -52,7 +52,7 @@ const MapView = (props) =>{
 
 
     return(
-        <section>
+        <section id="mapa">
             {mapContainer()}
 {/*             <div>
             {props.data.length!==0&&props.data[0].name}

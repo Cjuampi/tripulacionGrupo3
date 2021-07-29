@@ -44,7 +44,7 @@ const CommentHeader =  (props) => {
         <form className="d-flex" onSubmit={onSubmit}>
           {/* <input type="text" className = "form-control" value={name} onChange={onNameChange} placeholder="Nombre" required /> */}
           <textarea rows="5" className="form-control2" value={comment} placeholder="Escribe tu comentario" onChange={onCommentChange} required />
-          <button type="submit" className="btn">Comentar</button>
+          <button type="submit" id="comentar" className="btn">Comentar</button>
         </form>
       </div>
     )
