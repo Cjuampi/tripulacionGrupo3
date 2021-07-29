@@ -3,18 +3,21 @@ import { valuesContext } from '../../contexts/contextValue'
 import { useHistory } from 'react-router-dom';
 import MapLeaft from '../../components/MapLeaflet/Mapview'
 import axios from 'axios';
-import './DetailEvents.css'
+import utilsReact from '../../utils/Utils';
+import './DetailEvents.css';
 import BackToTopButton from '../../components/BackTop/BackToTopButton';
-import CommentHeader from '../../components/AddCommentHeader/AddCommentHeader'
+import CommentHeader from '../../components/AddCommentHeader/AddCommentHeader';
+import CommentsList from '../../components/CommentList/CommentList';
 
 const DetailEvents = () =>{
 
     
     const { detailE } = useContext(valuesContext);
-    const [sAEvent, setAEvent] = useState([])
-    const history = useHistory()
+    const [sAEvent, setAEvent] = useState([]);
+    const history = useHistory();
+    const [sAcomments,setAcomments] = useState([]);
+    const [idUser,setIdUser] = useState([]);
 
-    console.log('estoy aqu', detailE)
 
     const evetDetailAxios = async() =>{
         let result = await axios.post('/fndDetailEvent',{id_evento:detailE})
@@ -33,13 +36,46 @@ const DetailEvents = () =>{
             return <MapLeaft  changeEvent = {eventSelect} data ={[{ name : sAEvent.nombre_evento ,coordinates:[`${sAEvent.lat}`,`${sAEvent.lon}`]}] }/>
         }else{
             return null
-        }
-        
+        }   
     }
+
+    const getComments = async () =>{
+        
+        let result = await axios.post('/fndCommentsEvent',{id_evento:detailE})
+        //console.log(result.data)
+        return result.data;  
+
+    }
+
+    const getIdUser = async () => {
+        let userCookie = utilsReact.getCookieToken("userEmail");
+        console.log('***********************',userCookie)
+        let result = await axios.post('/findUser',{id_user:userCookie})
+        //console.log('---------------',result)
+        return result.data;
+        
+    } 
+    
+
+    const renderComments = () => {
+        if(
+            sAcomments.length != 0
+        ){
+            console.log("**********************************",sAcomments)
+            return <CommentsList datos={sAcomments}/>
+        }else{
+            console.log("datos no encontrados")
+             return null; 
+        }
+
+        
+
+    }
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
     //console.log(sAEvent.fecha_inicio)
     const date=new Date(sAEvent.fecha_inicio);
     //console.log(date)
-    const cleanDate = date.toDateString();
+    const cleanDate = date.toLocaleDateString("es-ES", options);
     
 
     useEffect(() => {
@@ -47,10 +83,41 @@ const DetailEvents = () =>{
         const exectAll = async () => {
             let result = await evetDetailAxios()
             setAEvent(result)
-
+            getIdUser();
         }
         exectAll()
-    }, [])
+    }, []);
+
+
+
+    useEffect(() => {
+        const exectAllComments = async () => {
+            let result = await getComments()
+            setAcomments(result)
+        }
+        exectAllComments()
+        const exectUsers = async () => {
+            let result = await getIdUser()
+            setIdUser(result);
+        }
+        exectUsers()
+    },[]);
+
+    const renderAddComments = () => {
+        if(idUser){
+            let index = sAcomments.findIndex((item) => item.id_user === idUser.id_user) 
+            if(index == -1){
+                return <CommentHeader id_user={idUser.id_user} id_evento={detailE}/>
+            }else{
+                return <p>No puedes añadir más comentarios en el mismo evento</p>
+            }
+        }      
+         else{
+            return <p>Para añadir una reseña debes estar registrado</p>
+         }       
+    }
+    
+    
 
     
     return(
@@ -60,7 +127,7 @@ const DetailEvents = () =>{
             {detailE!=''?(
                 <div className="containerDetail">
                     <div className="contImage">
-                        <img src={sAEvent.imagen_url}/>
+                        <img alt={sAEvent.nombre_evento} src={sAEvent.imagen_url}/>
                     </div>
                     <div className="subtitle">
                         <p>{sAEvent.nombre_evento}</p>
@@ -82,9 +149,14 @@ const DetailEvents = () =>{
                     <div className="mapaEvent">
                         <p>¿Como llegar?</p>
                         {renderMap()}
+
                     </div>
                     <div>
-                    <CommentHeader/>
+                        {renderComments()}
+
+                    </div>
+                    <div>
+                    {renderAddComments()} 
                     </div>
                 </div>
             )

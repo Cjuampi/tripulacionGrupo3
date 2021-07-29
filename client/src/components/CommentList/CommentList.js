@@ -1,22 +1,25 @@
 import React from 'react';
+import Comment from '../Comment/Comment';
+import './CommentList.css';
 
-import CommentsListItem from '../comments-list-item';
 
-import './comments-list.css';
 
-const CommentsList = ({ comments, onDeleted }) => {
-  const elements = comments.map((item) => {
-    const { id, ...itemProps } = item;
-    return (
-      <div key={id}><CommentsListItem {...itemProps}
-      onDeleted={() => onDeleted(id)} /></div>
-      )
-    })
-  return (
-    <div>
-      {elements}
-    </div>
-  )
-}
+const CommentsList = (props) =>{
+  /* console.log('propsOFFER',props) */
+ const renderComments = () => {
+   return props.datos.map((comment, i) => (
+      <Comment nombre={comment.nombre} key={i} fecha={comment.fecha} comentario={comment.comentario}/>
+   ));
+ }
+
+
+
+ return (
+   <div className="commentsList">
+       {renderComments()}
+   </div>
+ );
+ }
+
 
 export default CommentsList;

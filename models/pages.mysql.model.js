@@ -52,7 +52,7 @@ const pageMySQL = {
         let result;
         try{
             conn = await pool.getConnection();
-            let sqlQuery=('INSERT INTO comentarios id_user, id_evento, comentario, fecha values ?,?,?,?')
+            let sqlQuery=('INSERT INTO comentarios (id_user, id_evento, comentario, fecha) VALUES (?,?,?,?)')
             result= await conn.query(sqlQuery,data);
         }catch (err) {
             result = [{ codeError: err.code, numError: err.errno }]
@@ -61,7 +61,23 @@ const pageMySQL = {
             if (conn) conn.end();
         }
         return result
-        }
+        },
+        callComment: async(data) => {
+            let conn;
+            let result;
+            try{
+                conn = await pool.getConnection();
+                let sqlQuery=('select coment.id_user,coment.id_evento,user.nombre, coment.fecha, coment.comentario from usuarios as user, comentarios as coment where coment.id_user = user.id_user and coment.id_evento = ?')
+                result= await conn.query(sqlQuery,data);
+            }catch (err) {
+                result = [{ codeError: err.code, numError: err.errno }]
+                console.log(err)
+            } finally {
+                if (conn) conn.end();
+            }
+            return result
+            }
+
 }
 
 module.exports = pageMySQL
