@@ -1,0 +1,90 @@
+.slogan{
+    z-index: 9;
+    position: relative;
+    top: 120px;
+    left: 10px;
+}
+
+.inicio{
+    margin-top: -65px;
+    margin-left: 0px;
+    
+}
+
+.fotos-logan{
+    margin-bottom: 20px;
+}
+
+.destacados{
+    color:  #FF4500;
+    text-align: left;
+    margin-left: 22px;
+    margin-bottom: 10px;
+}
+/* MISION CARD */
+.mision{
+    border: 1px solid black;
+    border-radius: 16px;
+    width: 327px;
+    height:204px;
+    margin: 22px;
+}
+
+.mision_title{
+    color:#FF4500;
+    margin: 5px;
+}
+
+.acercar{
+    margin: 10px;
+}
+
+.star{
+    margin-top: 15px;
+}
+
+/* VISION CARD */
+
+.vision{
+    border: 1px solid black;
+    border-radius: 16px;
+    width: 327px;
+    height:256px;
+    margin: 22px;
+}
+
+.vision_title{
+    color:#FF4500;
+    margin: 5px;
+}
+
+.acercar{
+    margin: 10px;
+}
+
+.eye{
+    margin-top: 15px;
+}
+
+/* VALORES CARD */
+
+.valores{
+    border: 1px solid black;
+    border-radius: 16px;
+    width: 327px;
+    height:256px;
+    margin: 22px;
+}
+
+.valores_title{
+    color:#FF4500;
+    margin: 5px;
+}
+
+.acercar{
+    margin: 10px;
+}
+
+.smile{
+    margin-top: 15px;
+}

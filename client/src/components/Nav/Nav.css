@@ -1,0 +1,19 @@
+.Nav{
+    width: 100vw;
+    
+    display: flex;
+    
+}
+ul{
+   list-style: none;
+}
+    
+li{
+   text-indent: 0;
+}
+a{
+   text-decoration: none;
+   color: rgb(250, 4, 4);
+}
+        
+    
