@@ -4,7 +4,7 @@
 </div>
 
 ### dfun App
-dfun App it's a project to looking for events in Madrid (music, art, games, etc) to people with reduced mobility. Developed by [@AntonioAp](https://github.com/AntonioAp), [@Cjuampi](https://github.com/Cjuampi) and designed bye [@belen-demafelis99](https://github.com/belen-demafelis99)
+dfun App it's a project to looking for events in Madrid (music, art, games, etc) to people with reduced mobility. Developed by [@AntonioAp](https://github.com/AntonioAp), [@Cjuampi](https://github.com/Cjuampi) and designed by [@belen-demafelis99](https://github.com/belen-demafelis99)
 
 ### Built With:
 - Reactjs
