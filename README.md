@@ -6,9 +6,6 @@
 ### dfun App
 dfun App it's a project to looking for events in Madrid (music, art, games, etc) to people with reduced mobility. Developed by [@AntonioAp](https://github.com/AntonioAp) and me [@Cjuampi](https://github.com/Cjuampi).
 
-## Design 
-
-
 ### Built With:
 - Reactjs
 - Nodejs
